@@ -1,0 +1,15 @@
+<body>
+  <div class="login-box">
+    <h1>Se connecter</h1>
+    <form (ngSubmit)="userlogin()">
+      <input [(ngModel)]="user.username" type="text" placeholder="Username" name="username"/>
+      <br><br>
+      <input [(ngModel)]="user.password" type="password" placeholder="mot de passe" name="pass" />
+      <button >Se connecter</button>
+    </form>
+    
+  </div>
+ 
+</body>
+
+
