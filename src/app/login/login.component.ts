@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   userlogin() {
     console.log(this.user)
     this.lserviceService.loginuser(this.user).subscribe(data=>{
-      alert("login succesfully");
+      //alert("login succesfully");
       this.route.navigate(['/admin']);
     },error=>alert("error"));
    

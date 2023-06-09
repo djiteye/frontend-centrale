@@ -1,1 +1,40 @@
-<p>admin works!</p>
+<mat-toolbar>
+  <button type="button"
+  aria-label="Toggle sidenav"
+  mat-icon-button
+  (click)="drawer.toggle()"
+ ><mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button>
+ <img src="assets/UCG_honris_logo.jpg" alt="université centrale de tunis" style="width: 200px; height: 40px;">
+ <div class="spacer"></div>
+ <button mat-button class="btn btn-outline-light" [routerLink]="['./etage1']">ETAGE-1</button>
+ <button mat-button class="btn btn-outline-light" [routerLink]="['./etage2']">ETAGE-2</button>
+ <button mat-button class="btn btn-outline-light">ETAGE-3</button>
+ <button mat-button class="btn btn-outline-warning"><mat-icon aria-label="Side nav toggle icon">logout</mat-icon></button>
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #drawer mode="side" opened="true">
+    <div id="a">
+    <img src="assets/OIP.jpg" alt="université centrale de tunis" style="width: 200px; height: 150px;">
+  </div>
+   <h4 class="username">firstname:</h4>
+   <h4 class="name">lastname:</h4>
+   <p class="genre">genre: Homme</p>
+   <mat-divider></mat-divider>
+   <button mat-button class="menu-button">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+   </button>
+   <button mat-button class="menu-button">
+    <mat-icon>person</mat-icon>
+    <span>Users</span>
+   </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+      <router-outlet></router-outlet>
+   
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

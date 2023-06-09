@@ -1,0 +1,64 @@
+<div class="grid-container">
+    <mat-grid-list cols="1" rowHeight="750px">
+      <mat-grid-tile>
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Liste des Chambres
+              <button mat-icon-button class="more-button" >
+                <mat-icon><span class="material-icons" >
+                  add
+                  </span></mat-icon>
+              </button>
+             
+            </mat-card-title>
+          </mat-card-header>
+   <mat-card-content>
+      <div class="table_responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>Appartement</th>
+          <th>date reserv</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Numero</th>
+          <th>Type</th>
+          <th>genre</th>
+          <th>Nationalité</th>
+          <th>date d'entrée</th>
+          <th>date de sortie</th>
+          <th>action</th>
+        </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor = "let cont of chambre" >
+          <td> {{ cont.id }} </td>
+          <td> {{ cont.appartement }} </td>
+          <td> {{ cont.date_de_reserv }} </td>
+          <td> {{ cont.nom }} </td>
+          <td> {{ cont.prenom }} </td>
+          <td> {{ cont.name }} </td>
+          <td> {{ cont.place }} </td>
+          <td> {{ cont.genre }} </td>
+          <td> {{ cont.nationalite }} </td>
+          <td> {{ cont.date_entre }} </td>
+          <td> {{ cont.date_sortie }} </td>
+          <td>
+            <span class="action_btn">
+              <a (click)="onClick1(cont)">Reserver</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+          </td>
+          </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  
+  </mat-card-content>
+  </mat-card>
+  </mat-grid-tile>
+  </mat-grid-list>
+  </div>
