@@ -33,9 +33,16 @@ mat-sidenav-container{
   flex: 1 1 auto;
 }
 #a{
-  width: 90px;
+  width: 150px;
   height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
   
+}
+
+
+button.menu-button{
+  margin-bottom: 10px;
 }
 
 

@@ -20,9 +20,9 @@ export class EtagepService {
         map((res: any) => res));
 }
   
-  /*createContinent(continent: Continent): Observable<Continent> {
-      return this.httpService.post<Continent>(`${this.REST_API_SERVER}/createContinent`, continent);
-  }*/
+  preparation(): Observable<boolean>{
+      return this.httpService.get<boolean>(`${this.REST_API_SERVER}/prepCAP`);
+  }
   
   updateChambre(id: number, value: Chambre) {
       return this.httpService.put(`${this.REST_API_SERVER}/upC/${id}`, value);
@@ -31,4 +31,7 @@ export class EtagepService {
   /*deleteContinent(id: number): Observable<Continent> {
       return this.httpService.delete<Continent>(`${this.REST_API_SERVER}/deleteContinent/${id}`);
   }*/
+  deleteChambres(): Observable<Chambre> {
+    return this.httpService.delete<Chambre>(`${this.REST_API_SERVER}/deletes`);
+}
 }

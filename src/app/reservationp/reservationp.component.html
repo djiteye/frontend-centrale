@@ -1,20 +1,21 @@
 <div class="container col-md-4">
 <h1>Reservation de Chambre</h1>
 <form (ngSubmit)="onSubmit()"   >
-    <!-- <input [(ngModel)]="reservationChambreData.id" type="number" id="id" name="id" value="{{chambre.id}}">-->
-    <select [(ngModel)]="reservationChambreData.id"  type="number" id="id" name="id">
-      <option selected value="{{chambre.id}}">{{chambre.id}}</option>
-    </select>
+    <!-- <input [(ngModel)]="reservationChambreData.id" type="number" id="id" name="id" [formControl]="chambre.id">-->
+   <!-- <select  [(ngModel)]="reservationChambreData.id">
+      <option [value]="chambre.id" selected>{{chambre.id}}</option>
+    </select>-->
    <!-- <input  [(ngModel)]="reservationChambreData.id" type="number" id="id" name="id" placeholder= "id" >-->
-   <!-- <input  [(ngModel)]="reservationChambreData.appartement" type="text" id="appartement" name="appartement" placeholder="appartement">-->
-    <input  [(ngModel)]="reservationChambreData.date_de_reserv" type="date" id="date_de_reserv" name="date_de_reserv" placeholder="date_de_reserv">
-    <input  [(ngModel)]="reservationChambreData.nom" type="text" id="nom" name="nom" placeholder="nom">
-    <input  [(ngModel)]="reservationChambreData.prenom" type="text" id="prenom" name="prenom" placeholder="prenom">
-    <!-- <input  [(ngModel)]="reservationChambreData.name" type="text" id="name" name="name" placeholder="name">
-    <input  [(ngModel)]="reservationChambreData.genre" type="text" id="genre" name="genre" placeholder="genre">
-    <input  [(ngModel)]="reservationChambreData.place" type="text" id="place" name="place" placeholder="place">-->
-    <input  [(ngModel)]="reservationChambreData.date_entre" type="date" id="date_entre" name="date_de_reserv" placeholder="date_de_reserv">
-    <input  [(ngModel)]="reservationChambreData.date_sortie" type="date" id="date_sortie" name="date_sortie" placeholder="date_sortie">
+    <input  [(ngModel)]="reservationChambreData.appartement" type="text" id="appartement" name="appartement" placeholder="appartement" hidden>
+    date de reservation: <input  [(ngModel)]="reservationChambreData.date_de_reserv" type="date" id="date_de_reserv" name="date_de_reserv" placeholder="date_de_reserv">
+    Nom:    <input  [(ngModel)]="reservationChambreData.nom" type="text" id="nom" name="nom" placeholder="nom">
+    Prenom: <input  [(ngModel)]="reservationChambreData.prenom" type="text" id="prenom" name="prenom" placeholder="prenom">
+    Nationalité: <input  [(ngModel)]="reservationChambreData.nationalite" type="text" id="nationalite" name="nationalite" placeholder="nationalite">
+    <input  [(ngModel)]="reservationChambreData.name" type="text" id="name" name="name" placeholder="name" hidden>
+    <input  [(ngModel)]="reservationChambreData.genre" type="text" id="genre" name="genre" placeholder="genre" hidden>
+    <input  [(ngModel)]="reservationChambreData.place" type="text" id="place" name="place" placeholder="place" hidden>
+     <input  [(ngModel)]="reservationChambreData.date_entre" type="date" id="date_entre" name="date_entre" placeholder="date_entre" hidden>
+    <input  [(ngModel)]="reservationChambreData.date_sortie" type="date" id="date_sortie" name="date_sortie" placeholder="date_sortie" hidden>
     <input type="submit" value="Reserver">
   </form>
 </div>

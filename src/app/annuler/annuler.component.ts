@@ -1,21 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Chambre } from '../model/chambre';
-
-import { ActivatedRoute, Router } from '@angular/router';
 import { EtagepService } from '../service/etagep.service';
-import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-reservationp',
-  templateUrl: './reservationp.component.html',
-  styleUrls: ['./reservationp.component.scss']
+  selector: 'app-annuler',
+  templateUrl: './annuler.component.html',
+  styleUrls: ['./annuler.component.scss']
 })
-export class ReservationpComponent implements OnInit {
+export class AnnulerComponent implements OnInit {
   id:any;
   chambre:any;
   reservationChambreData: Chambre=new Chambre(); 
-  objetFormControl: FormControl | undefined;
-  //selectedObject: any;
   constructor(private etagepService:EtagepService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void { this.id= parseInt(this.route.snapshot.params['id']);

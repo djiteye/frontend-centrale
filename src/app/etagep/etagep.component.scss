@@ -41,7 +41,7 @@ table td {
 }
 
 .action_btn {
-    display: flex;
+    display: inline-block;
     justify-content: center;
     gap: 10px;
 }
@@ -51,7 +51,7 @@ table td {
     background: #fff;
     border: 1px solid;
     display: inline-block;
-    padding: 7px 20px;
+    padding: 4px 10px;
     font-weight: bold;
     border-radius: 3px;
     transition: 0.3s ease-in-out;
@@ -99,6 +99,10 @@ table>tbody>tr:hover{
   position: absolute;
   top: 5px;
   right: 10px;
+}
+#b{
+    box-align: center;
+    margin-left: 100px;
 }
 
 

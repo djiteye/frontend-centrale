@@ -5,7 +5,9 @@
   (click)="drawer.toggle()"
  ><mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button>
  <img src="assets/UCG_honris_logo.jpg" alt="université centrale de tunis" style="width: 200px; height: 40px;">
+ <h1>MAISON DE L'ETUDIANT</h1>
  <div class="spacer"></div>
+ 
  <button mat-button class="btn btn-outline-light" [routerLink]="['./etage1']">ETAGE-1</button>
  <button mat-button class="btn btn-outline-light" [routerLink]="['./etage2']">ETAGE-2</button>
  <button mat-button class="btn btn-outline-light">ETAGE-3</button>
@@ -15,7 +17,7 @@
 <mat-sidenav-container>
   <mat-sidenav #drawer mode="side" opened="true">
     <div id="a">
-    <img src="assets/OIP.jpg" alt="université centrale de tunis" style="width: 200px; height: 150px;">
+    <img class="avatar mat-elevation-z8" src="assets/OIP.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
   </div>
    <h4 class="username">firstname:</h4>
    <h4 class="name">lastname:</h4>
@@ -28,6 +30,15 @@
    <button mat-button class="menu-button">
     <mat-icon>person</mat-icon>
     <span>Users</span>
+   </button>
+    <button mat-button class="menu-button">
+    <mat-icon>info</mat-icon>
+    <span>Details</span>
+   </button>
+   <mat-divider></mat-divider>
+   <button mat-button class="menu-button">
+    <mat-icon>helpe</mat-icon>
+    <span>Helpe</span>
    </button>
 
   </mat-sidenav>

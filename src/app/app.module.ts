@@ -22,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { EtagepComponent } from './etagep/etagep.component';
 import { EtagesComponent } from './etages/etages.component';
 import { ReservationpComponent } from './reservationp/reservationp.component';
+import { AnnulerComponent } from './annuler/annuler.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ReservationpComponent } from './reservationp/reservationp.component';
     EtagepComponent,
     EtagesComponent,
     ReservationpComponent,
+    AnnulerComponent,
    
   ],
   imports: [
@@ -51,6 +53,7 @@ import { ReservationpComponent } from './reservationp/reservationp.component';
    MatGridListModule,
    MatMenuModule,
    MatDialogModule,
+   
   
  
   ],

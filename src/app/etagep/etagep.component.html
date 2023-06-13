@@ -5,15 +5,25 @@
           <mat-card-header>
             <mat-card-title>
              Liste des Chambres
-              <button mat-icon-button class="more-button" >
+              <button (click)="preparation()" class="btn btn-outline-succes" id="b">
                 <mat-icon><span class="material-icons" >
-                  add
+                  add_comment
+                  </span></mat-icon>
+                  <span>Préparation de l'ETAGE-1</span>
+              </button>
+              <button (click)="deleteChambres()" mat-icon-button class="more-button" >
+                <mat-icon><span class="material-icons" >
+                  delete_comment
                   </span></mat-icon>
               </button>
-             
             </mat-card-title>
           </mat-card-header>
    <mat-card-content>
+    <div class="form-outline mb-2">
+      <input type="search" class="form-control" id="datatable-search-input" placeholder="search">
+    </div>
+    <div id="datatable">
+    </div>
       <div class="table_responsive">
       <table>
         <thead>
@@ -50,6 +60,15 @@
               <a (click)="onClick1(cont)">Reserver</a>
               <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
             </span>
+            <span class="action_btn">
+              <a (click)="onClick1(cont)">annuler</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+            <span class="action_btn">
+              <a (click)="onClick1(cont)">valider</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+          
           </td>
           </tr>
        
