@@ -1,0 +1,8 @@
+<div class="container col-md-5">
+    <h1>Preparation de la sortie pour la reservation N°{{this.inputdata.id}}</h1>
+    <form (ngSubmit)="onSubmit()">
+        Date de sortie: <input  [(ngModel)]="reservationChambreData.date_sortie" type="date" id="date_sortie" name="date_sortie" placeholder="date_sortie">
+        <input type="submit" value="Reserver">
+      </form>
+    </div>
+    

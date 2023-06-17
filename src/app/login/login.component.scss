@@ -27,7 +27,7 @@ body {
   left: -50%;
   width: 370px;
   height: 450px;
-  background: linear-gradient(60deg,transparent,#45b5ff,#45b5ff);
+  background: linear-gradient(60deg,transparent,#0b0355,#0b0355);
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
 }
@@ -103,10 +103,12 @@ button {
   border-radius: 90px;
   font-weight: 600;
   cursor: pointer;
+  text-decoration-color: white;
 }
 
 button:active {
   background: linear-gradient(90deg,#45f3ff,brown);
+  
   opacity: 0.8;
 }
 

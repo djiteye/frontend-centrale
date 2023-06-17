@@ -1,5 +1,5 @@
-<div class="container col-md-4">
-<h1>Reservation de Chambre</h1>
+<div class="container col-md-5">
+<h1>Reservation de Chambre {{this.inputdata.id}}</h1>
 <form (ngSubmit)="onSubmit()"   >
     <!-- <input [(ngModel)]="reservationChambreData.id" type="number" id="id" name="id" [formControl]="chambre.id">-->
    <!-- <select  [(ngModel)]="reservationChambreData.id">
@@ -11,6 +11,8 @@
     Nom:    <input  [(ngModel)]="reservationChambreData.nom" type="text" id="nom" name="nom" placeholder="nom">
     Prenom: <input  [(ngModel)]="reservationChambreData.prenom" type="text" id="prenom" name="prenom" placeholder="prenom">
     Nationalité: <input  [(ngModel)]="reservationChambreData.nationalite" type="text" id="nationalite" name="nationalite" placeholder="nationalite">
+    Passeport: <input  [(ngModel)]="reservationChambreData.passeport" type="text" id="passeport" name="passeport" placeholder="N° passeport">
+    Date d'arrivée: <input  [(ngModel)]="reservationChambreData.date_arrive" type="datetime-local" id="date_arrive" name="date_arrive" placeholder="date_arrive">
     <input  [(ngModel)]="reservationChambreData.name" type="text" id="name" name="name" placeholder="name" hidden>
     <input  [(ngModel)]="reservationChambreData.genre" type="text" id="genre" name="genre" placeholder="genre" hidden>
     <input  [(ngModel)]="reservationChambreData.place" type="text" id="place" name="place" placeholder="place" hidden>

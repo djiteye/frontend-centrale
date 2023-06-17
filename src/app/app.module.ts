@@ -23,6 +23,9 @@ import { EtagepComponent } from './etagep/etagep.component';
 import { EtagesComponent } from './etages/etages.component';
 import { ReservationpComponent } from './reservationp/reservationp.component';
 import { AnnulerComponent } from './annuler/annuler.component';
+import { EtageppComponent } from './etagepp/etagepp.component';
+import { UpdatepComponent } from './updatep/updatep.component';
+import { SortieComponent } from './sortie/sortie.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { AnnulerComponent } from './annuler/annuler.component';
     EtagesComponent,
     ReservationpComponent,
     AnnulerComponent,
+    EtageppComponent,
+    UpdatepComponent,
+    SortieComponent,
    
   ],
   imports: [

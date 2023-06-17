@@ -6,6 +6,8 @@ import { EtagepComponent } from './etagep/etagep.component';
 import { EtagesComponent } from './etages/etages.component';
 import { ReservationpComponent } from './reservationp/reservationp.component';
 import { AnnulerComponent } from './annuler/annuler.component';
+import { UpdatepComponent } from './updatep/updatep.component';
+import { EtageppComponent } from './etagepp/etagepp.component';
 
 const routes: Routes = [
   { path : '', component :  LoginComponent },
@@ -13,11 +15,12 @@ const routes: Routes = [
   { path : 'admin', component :  AdminComponent, canActivateChild: [],
   children:[
     {path:'etage1', component: EtagepComponent, pathMatch: 'full'},
+    {path:'etage11', component: EtageppComponent, pathMatch: 'full'},
     {path:'etage2', component: EtagesComponent, pathMatch: 'full'}
     
    
   ]  },
-  {path:'admin/etage1/:id',component:ReservationpComponent }
+  {path:'admin/etage1/:id',component:UpdatepComponent }
  
 ];
 

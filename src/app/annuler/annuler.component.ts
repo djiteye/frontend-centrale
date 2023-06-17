@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Chambre } from '../model/chambre';
 import { EtagepService } from '../service/etagep.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-annuler',
@@ -12,18 +13,22 @@ export class AnnulerComponent implements OnInit {
   id:any;
   chambre:any;
   reservationChambreData: Chambre=new Chambre(); 
-  constructor(private etagepService:EtagepService, private route:ActivatedRoute, private router:Router) { }
+  inputdata: any;
+  constructor(@Inject(MAT_DIALOG_DATA)public data:number,private etagepService:EtagepService, private route:ActivatedRoute, private router:Router,private ref:MatDialogRef<AnnulerComponent>) { }
 
-  ngOnInit(): void { this.id= parseInt(this.route.snapshot.params['id']);
- this.getChambre();
+  ngOnInit(): void { 
+ //this.getChambre();
+ this.inputdata=this.data;
   }
   onSubmit(){
-    this.reservationChambreData.id=this.chambre.id;
-    this.reservationChambreData.appartement=this.chambre.appartement;
-    this.reservationChambreData.place=this.chambre.place;
-    this.reservationChambreData.name=this.chambre.name;
-    this.reservationChambreData.genre=this.chambre.genre;
-    this.etagepService.updateChambre(this.id, this.reservationChambreData).subscribe( data =>{
+    this.reservationChambreData.id=this.inputdata.id;
+    this.reservationChambreData.appartement=this.inputdata.appartement;
+    this.reservationChambreData.place=this.inputdata.place;
+    this.reservationChambreData.name=this.inputdata.name;
+    this.reservationChambreData.genre=this.inputdata.genre;
+    this.reservationChambreData.valider=false;
+    this.etagepService.updateChambre(this.inputdata.id, this.reservationChambreData).subscribe( data =>{
+      this.ref.close();
       this.goToContinentList();
     }
     , error => console.log(error));

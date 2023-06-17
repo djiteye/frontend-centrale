@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Chambre } from '../model/chambre';
 import { Observable, map } from 'rxjs';
+import { Chambre } from '../model/chambre';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EtagepService {
+export class EtageppService {
   private REST_API_SERVER = "http://localhost:8082/ChambreA1"
     
   constructor(private httpService: HttpClient) { }
   
-  getAllChambre(): Observable<Chambre[]> {
-      return this.httpService.get(`${this.REST_API_SERVER}/listC`).pipe(
+  getAllChambreva(): Observable<Chambre[]> {
+      return this.httpService.get(`${this.REST_API_SERVER}/listCVA`).pipe(
           map((res: any) => res));
   }
   getChambre(id:number): Observable<Chambre[]> {
@@ -20,11 +20,11 @@ export class EtagepService {
         map((res: any) => res));
 }
   
-  preparation(): Observable<boolean>{
+ /* preparation(): Observable<boolean>{
       return this.httpService.get<boolean>(`${this.REST_API_SERVER}/prepCAP`);
-  }
-  confirmer(id:number): Observable<boolean>{
-    return this.httpService.get<boolean>(`${this.REST_API_SERVER}/valider/${id}`);
+  }*/
+  valider(id:number): Observable<boolean>{
+    return this.httpService.get<boolean>(`${this.REST_API_SERVER}/confirmer/${id}`);
 }
   
   updateChambre(id: number, value: Chambre) {
@@ -34,7 +34,7 @@ export class EtagepService {
   /*deleteContinent(id: number): Observable<Continent> {
       return this.httpService.delete<Continent>(`${this.REST_API_SERVER}/deleteContinent/${id}`);
   }*/
-  deleteChambres(): Observable<Chambre> {
+ /* deleteChambres(): Observable<Chambre> {
     return this.httpService.delete<Chambre>(`${this.REST_API_SERVER}/deletes`);
-}
+}*/
 }
