@@ -30,6 +30,18 @@ export class EtagepService {
   updateChambre(id: number, value: Chambre) {
       return this.httpService.put(`${this.REST_API_SERVER}/upC/${id}`, value);
   }
+  nombrecsv(): Observable<Int32Array>{
+    return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCSV`).pipe(
+      map((res: any) => res));
+}
+nombrecdv(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCDV`).pipe(
+    map((res: any) => res));
+}
+nombrectv(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCTV`).pipe(
+    map((res: any) => res));
+}
   
   /*deleteContinent(id: number): Observable<Continent> {
       return this.httpService.delete<Continent>(`${this.REST_API_SERVER}/deleteContinent/${id}`);

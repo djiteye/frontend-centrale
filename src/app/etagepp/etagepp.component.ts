@@ -12,12 +12,17 @@ import { SortieComponent } from '../sortie/sortie.component';
 })
 export class EtageppComponent implements OnInit {
 //chambre:Chambre[] | undefined;
-chambre: any;
+chambre: any[]=[];
 disponibilite: any;
-constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etageppService:EtageppService,private router:Router) { }
+currentDate!: Date;
+col!:String;
+nom:any;
+prenom:any;
+constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etageppService:EtageppService,private router:Router) { this.currentDate = new Date(); }
 
 ngOnInit(): void {
   this.getallChambre();
+ // this.cool();
 }
 /*public onClick(Chambre:Chambre){
   this.router.navigate(['/admin/etage1',Chambre.id])
@@ -26,6 +31,30 @@ ngOnInit(): void {
  /* public onClick1(Chambre:Chambre){
     this.router.navigate(['/admin/etage1',Chambre.id])
     }*/
+    /*public cool(){
+      if(this.currentDate == this.chambre.date_arrive || this.chambre.date_entre ==null){
+         this.col ='c';
+      }else if(this.currentDate < this.chambre.date_arrive || this.chambre.date_entre ==null){
+         this.col = 'd';
+      }else if(this.currentDate > this.chambre.date_arrive || this.chambre.date_entre ==null){
+         this.col = 'a';
+      }else if(this.currentDate > this.chambre.date_arrive || this.chambre.date_entre !=null){
+         this.col = 'e';
+      }else{
+        this.col='e';
+      }
+      return this.col;
+    }*/
+    search() {
+      this.chambre = this.chambre.filter(res =>{
+       return res.nom.toLocaleLowerCase().match(this.nom.toLocaleLowerCase())
+    });
+    }
+    searchn() {
+      this.chambre = this.chambre.filter(res =>{
+       return res.prenom.toLocaleLowerCase().match(this.prenom.toLocaleLowerCase())
+    });
+    }
   private getallChambre(){
     this.etageppService.getAllChambreva().subscribe(data => {
       this.chambre = data;

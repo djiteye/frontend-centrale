@@ -4,13 +4,14 @@
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
-             Liste des Chambres confirmer
-             
+             Liste des Chambres confirmées
+            <!-- {{ currentDate | date:'medium' }}-->
             </mat-card-title>
           </mat-card-header>
    <mat-card-content>
-    <div class="form-outline mb-2">
-      <input type="search" class="form-control" id="datatable-search-input" placeholder="search">
+    <div class="form-outline mb-2" id="d">
+      <input type="search" class="form-control" [(ngModel)]="nom" (input)="search()" id="datatable-search-input" placeholder="Rech par Nom....">
+      <input type="search" class="form-control" [(ngModel)]="prenom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Prenom....">
     </div>
     <div id="datatable">
     </div>
@@ -40,14 +41,19 @@
           <td> {{ cont.name }} </td>
           <td> {{ cont.place }} </td>
           <td> {{ cont.nationalite }} </td>
-          <td> {{ cont.date_arrive }} </td>
-          <td> {{ cont.date_entre }} </td>
-          <td> {{ cont.date_sortie }} </td>
-          <td>
-            <span class="action_btn">
-              <a  (click)="valider(cont)">Valider</a>
+          <td *ngIf="currentDate > cont.date_arrive || cont.date_entre == null" id="a"> {{ cont.date_arrive | date: 'medium' }} </td>
+          
+          <td *ngIf="currentDate > cont.date_arrive || cont.date_entre != null" id="e"> {{ cont.date_arrive | date: 'medium' }} </td>
+        
+          <!--<td *ngIfElse="currentDate < cont.date_arrive || cont.date_entre ==null" id="c"> {{ cont.date_arrive | date: 'medium'}} </td>
+          <td > {{ cont.date_arrive | date: 'medium'}} </td>-->
+          <td> {{ cont.date_entre | date: 'mediumDate'}} </td>
+          <td> {{ cont.date_sortie | date: 'mediumDate' }} </td>
+          <td *ngIf="cont.date_entre != null">
+           <!-- <span class="action_btn">
+              <a  (click)="valider(cont)">Valider</a>-->
               <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
-            </span>
+           <!-- </span>-->
             <span class="action_btn">
                 <a (click)="onClick(cont)">Sortie</a>
                 <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
@@ -63,6 +69,12 @@
             <!--</span>-->
           
           </td>
+          <td *ngIf="cont.date_entre == null">
+            <span class="action_btn">
+              <a  (click)="valider(cont)">Valider</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+            </td>
           </tr>
        
       </tbody>

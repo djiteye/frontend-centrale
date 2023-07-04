@@ -20,17 +20,58 @@ export class EtagepComponent implements OnInit {
   disponibilite: any;
   searchTerm: any | undefined;
   place: any;
+  nom: any;
+  appartement:any;
   items: Chambre[]=[];
+  nombrecs:any;
+  nombrecd:any;
+  nombrect:any;
   constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etagepService:EtagepService,private router:Router) { }
 
   ngOnInit(): void {
     this.getallChambre();
+    this.nombrecsv();
+    this.nombrecdv();
+    this.nombrectv();
   }
   search() {
     this.chambre = this.chambre.filter(res =>{
      return res.place.toLocaleLowerCase().match(this.place.toLocaleLowerCase())
   });
   }
+  searchn() {
+    this.chambre = this.chambre.filter(res =>{
+     return res.name.toLocaleLowerCase().match(this.nom.toLocaleLowerCase())
+  });
+  }
+  searcha() {
+    this.chambre = this.chambre.filter(res =>{
+     return res.appartement.toLocaleLowerCase().match(this.appartement.toLocaleLowerCase())
+  });
+  }
+  nombrecsv(){
+    this.etagepService.nombrecsv().subscribe(data => {
+      this.nombrecs = data;
+    });
+  }
+  nombrecdv(){
+    this.etagepService.nombrecdv().subscribe(data => {
+      this.nombrecd = data;
+    });
+  }
+  nombrectv(){
+    this.etagepService.nombrectv().subscribe(data => {
+      this.nombrect = data;
+    });
+  }
+  /*search(): void {
+    const searchString = this.place.toLowerCase();// Terme de recherche converti en minuscules
+    this.chambre = this.chambre.filter(res => {
+      return Object.values(res).some((value: any) =>
+        value.toString().toLowerCase().includes(searchString)
+    );
+    });
+  }*/
   public onClick(Chambre:Chambre){
     this.dialogRef.open(AnnulerComponent,{
       width:'60%',

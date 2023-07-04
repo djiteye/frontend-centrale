@@ -27,6 +27,12 @@ export class UpdatepComponent implements OnInit {
     this.reservationChambreData.place=this.chambre.place;
     this.reservationChambreData.name=this.chambre.name;
     this.reservationChambreData.genre=this.chambre.genre;
+    this.reservationChambreData.date_de_reserv=this.chambre.date_de_reserv;
+    this.reservationChambreData.nom=this.chambre.nom;
+    this.reservationChambreData.prenom=this.chambre.prenom;
+    this.reservationChambreData.nationalite=this.chambre.nationalite;
+    this.reservationChambreData.passeport=this.chambre.passeport;
+    this.reservationChambreData.date_arrive=this.chambre.date_arrive;
     this.reservationChambreData.valider=false;
     this.etagepService.updateChambre(this.id, this.reservationChambreData).subscribe( data =>{
       this.goToContinentList();

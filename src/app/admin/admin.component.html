@@ -19,8 +19,30 @@
   <button mat-button class="btn btn-outline-light" [routerLink]="['./etage11']">ETAGE-1-D</button></a></li>
   </ul></span>
 </button>
- <button mat-button class="btn btn-outline-light" [routerLink]="['./etage2']">ETAGE-2</button>
- <button mat-button class="btn btn-outline-light">ETAGE-3</button>
+ <button mat-button class="btn btn-outline-light">
+  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    ETAGE-2
+  </a>
+  <span class="action_btn">
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item">
+   <button mat-button class="btn btn-outline-light" [routerLink]="['./etage2']">ETAGE-2-P</button></a></li>
+   <li><a class="dropdown-item">
+    <button mat-button class="btn btn-outline-light" [routerLink]="['./etage22']">ETAGE-2-D</button></a></li>
+    </ul></span>
+</button>
+ <button mat-button class="btn btn-outline-light">
+  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    ETAGE-3
+  </a>
+  <span class="action_btn">
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item">
+   <button mat-button class="btn btn-outline-light" [routerLink]="['./etage3']">ETAGE-3-P</button></a></li>
+   <li><a class="dropdown-item">
+    <button mat-button class="btn btn-outline-light" [routerLink]="['./etage33']">ETAGE-3-D</button></a></li>
+    </ul></span>
+</button>
  <button mat-button class="btn btn-outline-warning"><mat-icon aria-label="Side nav toggle icon">logout</mat-icon></button>
 
 </mat-toolbar>
@@ -29,15 +51,15 @@
     <div id="a">
     <img class="avatar mat-elevation-z8" src="assets/OIP.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
   </div>
-   <h4 class="username">firstname:</h4>
-   <h4 class="name">lastname:</h4>
-   <p class="genre">genre: Homme</p>
+   <h4 class="username">firstname:{{user.username}}</h4>
+   <h4 class="email">Email:{{user.email}}</h4>
+   <p class="genre">genre:{{user.genre}}</p>
    <mat-divider></mat-divider>
    <button mat-button class="menu-button" [routerLink]="['/admin']">
     <mat-icon>home</mat-icon>
     <span>Home</span>
    </button>
-   <button mat-button class="menu-button">
+   <button mat-button class="menu-button" [routerLink]="['./users']">
     <mat-icon>person</mat-icon>
     <span>Users</span>
    </button>

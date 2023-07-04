@@ -1,0 +1,121 @@
+
+body>div{
+    max-height: 420px;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+.table_responsive {
+ 
+    background-color: #efefef33;
+    border-radius: 4px;
+    max-height: 420px;
+    overflow-y: scroll;
+    //margin: 20px;
+    top: 0;
+}
+table {
+    width: 100%;
+    font-size: 13px;
+    color: #444;
+    white-space: nowrap;
+    border-collapse: collapse;
+   
+}
+table>thead {
+    background-color:brown;
+    color: #fff;
+}
+table>thead th {
+    padding: 15px;
+    position: sticky;
+    top: 0px;
+    
+
+}
+table th,
+table td {
+    border: 1px solid #00000017;
+    padding: 10px 15px;
+    
+    
+}
+
+.action_btn {
+    display: inline-block;
+    justify-content: center;
+    gap: 10px;
+}
+.action_btn>a {
+    text-decoration: none;
+    color: #444;
+    background: #fff;
+    border: 1px solid;
+    display: inline-block;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.action_btn>a:nth-child(1) {
+    border-color: #2640a6;
+}
+.action_btn>a:nth-child(2) {
+    border-color: red;
+}
+.action_btn>a:hover {
+    box-shadow: 0 3px 8px #0003;
+}
+table>tbody>tr {
+    background-color: #fff;
+    transition: 0.3s ease-in-out;
+}
+table>tbody>tr:nth-child(even) {
+    background-color: rgb(238, 238, 238);
+}
+table>tbody>tr:hover{
+    filter: drop-shadow(0px 2px 6px #0002);
+}
+.add_btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+#b{
+    box-align: center;
+    margin-left: 100px;
+}
+div#d{
+    display: inline-flex;
+    padding-inline-start: 20%;
+    width: 1000px;
+}
+div#x{
+    display: inline-block;
+    color: brown;
+    margin-left: 60px;
+    text-size-adjust: 7px;
+
+}
+
+
+

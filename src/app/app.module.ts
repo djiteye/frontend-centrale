@@ -26,6 +26,19 @@ import { AnnulerComponent } from './annuler/annuler.component';
 import { EtageppComponent } from './etagepp/etagepp.component';
 import { UpdatepComponent } from './updatep/updatep.component';
 import { SortieComponent } from './sortie/sortie.component';
+import { EtagessComponent } from './etagess/etagess.component';
+import { EtagetComponent } from './etaget/etaget.component';
+import { EtagettComponent } from './etagett/etagett.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { AnnulersComponent } from './annulers/annulers.component';
+import { UpdatesComponent } from './updates/updates.component';
+import { UpdatetComponent } from './updatet/updatet.component';
+import { AnnulertComponent } from './annulert/annulert.component';
+import { ReservationtComponent } from './reservationt/reservationt.component';
+import { SortiesComponent } from './sorties/sorties.component';
+import { SortietComponent } from './sortiet/sortiet.component';
+import { RegisterComponent } from './register/register.component';
+import { ListuserComponent } from './listuser/listuser.component';
 
 
 @NgModule({
@@ -40,6 +53,19 @@ import { SortieComponent } from './sortie/sortie.component';
     EtageppComponent,
     UpdatepComponent,
     SortieComponent,
+    EtagessComponent,
+    EtagetComponent,
+    EtagettComponent,
+    ReservationsComponent,
+    AnnulersComponent,
+    UpdatesComponent,
+    UpdatetComponent,
+    AnnulertComponent,
+    ReservationtComponent,
+    SortiesComponent,
+    SortietComponent,
+    RegisterComponent,
+    ListuserComponent,
    
   ],
   imports: [

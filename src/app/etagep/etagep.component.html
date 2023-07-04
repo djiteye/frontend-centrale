@@ -11,6 +11,9 @@
                   </span></mat-icon>
                   <span>Préparation de l'ETAGE-1</span>
               </button>
+              <div id="x">
+              [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
+            </div>
               <button (click)="deleteChambres()" mat-icon-button class="more-button" >
                 <mat-icon><span class="material-icons" >
                   delete_comment
@@ -19,8 +22,10 @@
             </mat-card-title>
           </mat-card-header>
    <mat-card-content>
-    <div class="form-outline mb-2">
-      <input type="search" class="form-control"  [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="search">
+    <div class="form-outline mb-2" id="d">
+      <input type="search" class="form-control" [(ngModel)]="appartement" (input)="searcha()" id="datatable-search-input" placeholder="Rech par Appartement....">
+      <input type="search" class="form-control" [(ngModel)]="nom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Numéro....">
+      <input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">
     </div>
     <div id="datatable">
     </div>
@@ -47,7 +52,7 @@
         <tr *ngFor = "let cont of chambre">
           <td> {{ cont.id }} </td>
           <td> {{ cont.appartement }} </td>
-          <td> {{ cont.date_de_reserv }} </td>
+          <td> {{ cont.date_de_reserv | date: 'mediumDate'}} </td>
           <td> {{ cont.nom }} </td>
           <td> {{ cont.prenom }} </td>
           <td> {{ cont.name }} </td>
@@ -55,13 +60,13 @@
           <td> {{ cont.genre }} </td>
           <td> {{ cont.nationalite }} </td>
           <td> {{ cont.passeport }} </td>
-          <td> {{ cont.date_arrive }} </td>
+          <td> {{ cont.date_arrive | date: 'medium'}} </td>
           <td> {{ cont.valider }} </td>
-          <td>
-            <span class="action_btn"  >
-              <a (click)="onClickR(cont)">Reserver</a>
+          <td *ngIf="cont.nom != null">
+            <!--<span class="action_btn"  >
+              <a (click)="onClickR(cont)">Reserver</a>-->
               <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
-            </span>
+            <!--</span>-->
             <span class="action_btn">
               
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -87,6 +92,12 @@
             <!--</span>-->
           
           </td>
+          <td *ngIf="cont.nom == null">
+            <span class="action_btn"  >
+              <a (click)="onClickR(cont)">Reserver</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+            </td>
           </tr>
        
       </tbody>

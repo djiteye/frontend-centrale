@@ -1,0 +1,112 @@
+<div class="grid-container">
+    <mat-grid-list cols="1" rowHeight="750px">
+      <mat-grid-tile>
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Liste des Chambres
+              <button (click)="preparation()" class="btn btn-outline-succes" id="b">
+                <mat-icon><span class="material-icons" >
+                  add_comment
+                  </span></mat-icon>
+                  <span>Préparation de l'ETAGE-3</span>
+              </button>
+              <div id="x">
+              [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
+            </div>
+              <button (click)="deleteChambres()" mat-icon-button class="more-button" >
+                <mat-icon><span class="material-icons" >
+                  delete_comment
+                  </span></mat-icon>
+              </button>
+            </mat-card-title>
+          </mat-card-header>
+   <mat-card-content>
+    <div class="form-outline mb-2" id="d">
+      <input type="search" class="form-control" [(ngModel)]="appartement" (input)="searcha()" id="datatable-search-input" placeholder="Rech par Appartement....">
+      <input type="search" class="form-control" [(ngModel)]="nom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Numéro....">
+      <input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">
+    </div>
+    <div id="datatable">
+    </div>
+      <div class="table_responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>Appartement</th>
+          <th>date reserv</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Numero</th>
+          <th>Type</th>
+          <th>genre</th>
+          <th>Nationalité</th>
+          <th>Passeport</th>
+          <th>date d'arrivée</th>
+          <th>Valider</th>
+          <th>action</th>
+        </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor = "let cont of chambre">
+          <td> {{ cont.id }} </td>
+          <td> {{ cont.appartement }} </td>
+          <td> {{ cont.date_de_reserv | date: 'mediumDate'}} </td>
+          <td> {{ cont.nom }} </td>
+          <td> {{ cont.prenom }} </td>
+          <td> {{ cont.name }} </td>
+          <td> {{ cont.place }} </td>
+          <td> {{ cont.genre }} </td>
+          <td> {{ cont.nationalite }} </td>
+          <td> {{ cont.passeport }} </td>
+          <td> {{ cont.date_arrive | date: 'medium'}} </td>
+          <td> {{ cont.valider }} </td>
+          <td *ngIf="cont.nom != null">
+            <!--<span class="action_btn"  >
+              <a (click)="onClickR(cont)">Reserver</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            <!--</span>-->
+            <span class="action_btn">
+              
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Autres
+                </a>
+                <span class="action_btn">
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="onClick1(cont)">Modifier</a></li>
+                  <li><a class="dropdown-item" (click)="confirmer(cont)">Confirmer</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" (click)="onClick(cont)">annuler</a></li>
+                </ul>
+              </span>
+              
+          </span>
+           <!-- <span class="action_btn">
+              <a (click)="onClick(cont)">annuler</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            <!--</span>
+            <span class="action_btn">
+              <a (click)="onClick1(cont)">valider</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            <!--</span>-->
+          
+          </td>
+          <td *ngIf="cont.nom == null">
+            <span class="action_btn"  >
+              <a (click)="onClickR(cont)">Reserver</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+            </td>
+          </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  
+  </mat-card-content>
+  </mat-card>
+  </mat-grid-tile>
+  </mat-grid-list>
+  </div>
+

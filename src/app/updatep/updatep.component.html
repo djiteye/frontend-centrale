@@ -1,13 +1,13 @@
 <div class="container col-md-4">
-    <h1>Reservation de Chambre</h1>
+    <h1>Modification de la Chambre</h1>
     <form (ngSubmit)="onSubmit()">
-        date de reservation: <input [(ngModel)]="reservationChambreData.date_de_reserv" type="date" id="date_de_reserv" name="date_de_reserv" placeholder="date_de_reserv">
-        Nom:    <input [(ngModel)]="reservationChambreData.nom" type="text" id="nom" name="nom" placeholder="nom">
-        Prenom: <input  [(ngModel)]="reservationChambreData.prenom" type="text" id="prenom" name="prenom" placeholder="prenom">
-        Nationalité: <input  [(ngModel)]="reservationChambreData.nationalite" type="text" id="nationalite" name="nationalite" placeholder="nationalite">
-        Passeport: <input  [(ngModel)]="reservationChambreData.passeport" type="text" id="passeport" name="passeport" placeholder="passeport">
-        Date d'arrivée: <input  [(ngModel)]="reservationChambreData.date_arrive" type="datetime-local" id="date_arrive" name="date_arrive" placeholder="date d'arrivée">
-        <input type="submit" value="Reserver">
+        date de reservation: <input [(ngModel)]="chambre.date_de_reserv" type="date" id="date_de_reserv" name="date_de_reserv" placeholder="date_de_reserv">
+        Nom:    <input [(ngModel)]="chambre.nom" type="text" id="nom" name="nom" placeholder="nom">
+        Prenom: <input  [(ngModel)]="chambre.prenom" type="text" id="prenom" name="prenom" placeholder="prenom">
+        Nationalité: <input  [(ngModel)]="chambre.nationalite" type="text" id="nationalite" name="nationalite" placeholder="nationalite">
+        Passeport: <input  [(ngModel)]="chambre.passeport" type="text" id="passeport" name="passeport" placeholder="passeport">
+        Date d'arrivée: <input  [(ngModel)]="chambre.date_arrive" type="datetime-local" id="date_arrive" name="date_arrive" placeholder="date_arrive">
+        <input type="submit" value="Modifier">
       </form>
     </div>
     
