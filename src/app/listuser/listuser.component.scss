@@ -10,9 +10,11 @@ body>div{
     
     background-color: #efefef33;
     
-    overflow: auto;
-    margin: auto;
     border-radius: 4px;
+    max-height: 450px;
+    overflow-y: scroll;
+    //margin: 20px;
+    top: 0;
 }
 table {
     width: 100%;

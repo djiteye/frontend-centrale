@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { User } from '../model/user';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,13 +13,17 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 user:User= new User();
 id:any;
+genr:String="homme";
+//param: any;
+//paramObject: any;
 
   //User: User[] | undefined;
-  constructor( private httpClient:HttpClient, private userservice:LoginService,private route:Router) { }
+  constructor( private httpClient:HttpClient, private userservice:LoginService,private route:Router,private userService:UserService, private router: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //this.param= this.router.snapshot.params[this.param];
     //this.getUser();
-   
+   this.use;
+   this.genr;
   }
  /* getUser(): void{
     this.id=this.user.id;
@@ -27,11 +32,21 @@ id:any;
       },error=>alert("error"));
       
   }*/
+   userString = sessionStorage.getItem('use');
+ use = this.userString ? JSON.parse(this.userString) : null;
   save(User:string):void{
     localStorage.setItem('user', User);
    this.route.navigate(['/menu']);
   }
-  lout(User:string):void{
-    return localStorage.removeItem('user');
+  lout():void{
+    sessionStorage.removeItem('use');
+    this.route.navigate(['/login']);
   }
+  public getUser(id:number){
+    this.userService.getUser(id).subscribe(data => {
+      this.user = data;
+     // this.rol = data;
+    });
+  }
+  
 }

@@ -13,15 +13,20 @@ import { Role } from '../model/role';
 })
 export class ListuserComponent implements OnInit {
   users!: User[];
-  rol!: Role[];
+  rol: any;
   user:any;
+  re:any;
   //users:any[] | undefined;
-name: any;
+//name: any;
 
   constructor(private dialogRef:MatDialog, private userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
     this.getUsers();
+    //this.getRole(this.user.id);
+    //this.rol;
+    //this.re;
+    
   }
   public onClick(){
     this.dialogRef.open(RegisterComponent,{
@@ -36,20 +41,29 @@ name: any;
     public getUsers(){
       this.userService.getAllUsers().subscribe(data => {
         this.users = data;
+        /*this.rol=data;
+        this.re = this.hasRole(this.rol.role);*/
       });
     }
+   /* hasRole(roll: Role[]) {
+     // return rol.some(role => role.name);
+     roll.forEach(Role => {
+       this.re= Role.name;
+     });
+     return this.re;
+    }*/
     public getUser(id:number){
       this.userService.getUser(id).subscribe(data => {
         this.user = data;
        // this.rol = data;
       });
     }
-    /*public getRole(id:number){
+    public getRole(id:number){
       this.userService.getRole(id).subscribe(data => {
         this.rol = data;
        // this.rol = data;
       });
-    }*/
+    }
     deleteUser(id: number){
       this.userService.deleteUser(id).subscribe( data => {
         console.log(data);

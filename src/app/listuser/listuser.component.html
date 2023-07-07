@@ -22,38 +22,26 @@
           <th>Username</th>
           <th>Email</th>
            <th>Genre</th>
-          <th>role</th>
+          <!--<th>role</th>-->
           
           <th>Action</th>
         </tr>
         </thead>
       <tbody>
      
-        <tr *ngFor = "let user of users" >
+        <tr *ngFor = "let user of users">
           <td> {{ user.id}} </td>
           <td> {{ user.username}} </td>
           <td> {{ user.email }} </td>
           <td> {{ user.genre }} </td>
-          <td> {{ user.role }} </td>
+          <!--<td > role: {{ re }} </td>-->
           <td>
             <span class="action_btn">
               <a (click)="deleteUser(user.id)" >Remove</a>
             </span>
           </td>
         </tr>
-        <tr>
-          <td>test</td>
-          <td>test</td>
-          <td>test</td>
-          <td>test@test.test</td>
-          <td>test</td>
-          
-          <td>
-            <span class="action_btn">
-              <a >Remove</a>
-            </span>
-          </td>
-        </tr>
+       
       </tbody>
     </table>
   </div>

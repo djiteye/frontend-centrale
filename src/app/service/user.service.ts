@@ -10,7 +10,7 @@ import { Role } from '../model/role';
 export class UserService {
 
   private REST_API_SERVER = "http://localhost:8082/api/user"
- // private REST_API_SERVER1 = "http://localhost:8088/api/auth"
+  private REST_API_SERVER1 = "http://localhost:8082/api/roles"
   
   constructor(private httpService: HttpClient) { }
   getAllUsers(): Observable<User[]> {
@@ -29,8 +29,8 @@ getUser(id: number) : Observable<User>{
   return this.httpService.get(`${this.REST_API_SERVER}/U/${id}`).pipe(
     map((res: any) => res));
 }
-getRole(id: number) : Observable<Role>{
-  return this.httpService.get(`${this.REST_API_SERVER}/U/${id}`).pipe(
+getRole(id: number) : Observable<any>{
+  return this.httpService.get(`${this.REST_API_SERVER1}/R/${id}`).pipe(
     map((res: any) => res));
 }
 

@@ -43,17 +43,21 @@
     <button mat-button class="btn btn-outline-light" [routerLink]="['./etage33']">ETAGE-3-D</button></a></li>
     </ul></span>
 </button>
- <button mat-button class="btn btn-outline-warning"><mat-icon aria-label="Side nav toggle icon">logout</mat-icon></button>
+ <button mat-button class="btn btn-outline-warning" (click)="lout()"><mat-icon aria-label="Side nav toggle icon">logout</mat-icon></button>
 
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #drawer mode="side" opened="false">
-    <div id="a">
+    <div id="a" *ngIf="use.genre == genr">
     <img class="avatar mat-elevation-z8" src="assets/OIP.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
   </div>
-   <h4 class="username">firstname:{{user.username}}</h4>
-   <h4 class="email">Email:{{user.email}}</h4>
-   <p class="genre">genre:{{user.genre}}</p>
+  <div id="a" *ngIf="use.genre != genr">
+    <img class="avatar mat-elevation-z8" src="assets/OIP-f.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
+  </div>
+   <h4 class="username">{{use.username}}</h4>
+   <h4 class="email">{{use.email}}</h4>
+   <p class="genre">Genre: {{use.genre}}</p>
+<br>
    <mat-divider></mat-divider>
    <button mat-button class="menu-button" [routerLink]="['/admin']">
     <mat-icon>home</mat-icon>
@@ -63,14 +67,14 @@
     <mat-icon>person</mat-icon>
     <span>Users</span>
    </button>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [routerLink]="['./detail']">
     <mat-icon>info</mat-icon>
     <span>Details</span>
    </button>
    <mat-divider></mat-divider>
-   <button mat-button class="menu-button">
+   <button mat-button class="menu-button" [routerLink]="['./help']">
     <mat-icon>helpe</mat-icon>
-    <span>Helpe</span>
+    <span>Help</span>
    </button>
 
   </mat-sidenav>

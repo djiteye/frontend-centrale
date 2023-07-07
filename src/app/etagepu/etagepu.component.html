@@ -1,0 +1,66 @@
+<div class="grid-container">
+    <mat-grid-list cols="1" rowHeight="750px">
+      <mat-grid-tile>
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Liste des Chambres à l'étage1
+              <div id="x">
+              [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
+            </div>
+            </mat-card-title>
+          </mat-card-header>
+   <mat-card-content>
+    <div class="form-outline mb-2" id="d">
+      <input type="search" class="form-control" [(ngModel)]="appartement" (input)="searcha()" id="datatable-search-input" placeholder="Rech par Appartement....">
+      <input type="search" class="form-control" [(ngModel)]="nom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Numéro....">
+      <input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">
+    </div>
+    <div id="datatable">
+    </div>
+      <div class="table_responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>Appartement</th>
+          <th>date reserv</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Numero</th>
+          <th>Type</th>
+          <th>genre</th>
+          <th>Nationalité</th>
+          <th>Passeport</th>
+          <th>date d'arrivée</th>
+          <th>Valider</th>
+         
+        </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor = "let cont of chambre">
+          <td> {{ cont.id }} </td>
+          <td> {{ cont.appartement }} </td>
+          <td> {{ cont.date_de_reserv | date: 'mediumDate'}} </td>
+          <td> {{ cont.nom }} </td>
+          <td> {{ cont.prenom }} </td>
+          <td> {{ cont.name }} </td>
+          <td> {{ cont.place }} </td>
+          <td> {{ cont.genre }} </td>
+          <td> {{ cont.nationalite }} </td>
+          <td> {{ cont.passeport }} </td>
+          <td> {{ cont.date_arrive | date: 'medium'}} </td>
+          <td> {{ cont.valider }} </td>
+         
+          </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  
+  </mat-card-content>
+  </mat-card>
+  </mat-grid-tile>
+  </mat-grid-list>
+  </div>
+

@@ -1,0 +1,90 @@
+<div class="grid-container">
+    <mat-grid-list cols="1" rowHeight="750px">
+      <mat-grid-tile>
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Liste des Chambres confirmées à l'étage2
+            <!-- {{ currentDate | date:'medium' }}-->
+            </mat-card-title>
+          </mat-card-header>
+   <mat-card-content>
+    <div class="form-outline mb-2" id="d">
+      <input type="search" class="form-control" [(ngModel)]="nom" (input)="search()" id="datatable-search-input" placeholder="Rech par Nom....">
+      <input type="search" class="form-control" [(ngModel)]="prenom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Prenom....">
+    </div>
+    <div id="datatable">
+    </div>
+      <div class="table_responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>Appartement</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Numero</th>
+          <th>Type</th>
+          <th>Nationalité</th>
+          <th>date d'arrivée</th>
+          <th>date d'entrée</th>
+          <th>date de sortie</th>
+          <th>action</th>
+        </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor = "let cont of chambre" >
+          <td> {{ cont.id }} </td>
+          <td> {{ cont.appartement }} </td>
+          <td> {{ cont.nom }} </td>
+          <td> {{ cont.prenom }} </td>
+          <td> {{ cont.name }} </td>
+          <td> {{ cont.place }} </td>
+          <td> {{ cont.nationalite }} </td>
+          <td *ngIf="currentDate > cont.date_arrive || cont.date_entre == null" id="a"> {{ cont.date_arrive | date: 'medium' }} </td>
+          
+          <td *ngIf="currentDate > cont.date_arrive || cont.date_entre != null" id="e"> {{ cont.date_arrive | date: 'medium' }} </td>
+        
+          <!--<td *ngIfElse="currentDate < cont.date_arrive || cont.date_entre ==null" id="c"> {{ cont.date_arrive | date: 'medium'}} </td>
+          <td > {{ cont.date_arrive | date: 'medium'}} </td>-->
+          <td> {{ cont.date_entre | date: 'mediumDate'}} </td>
+          <td> {{ cont.date_sortie | date: 'mediumDate' }} </td>
+          <td *ngIf="cont.date_entre != null">
+           <!-- <span class="action_btn">
+              <a  (click)="valider(cont)">Valider</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+           <!-- </span>-->
+           <!-- <span class="action_btn">
+                <a (click)="onClick(cont)">Sortie</a>-->
+                <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+              <!--</span>-->
+           
+           <!-- <span class="action_btn">
+              <a (click)="onClick(cont)">annuler</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            <!--</span>
+            <span class="action_btn">
+              <a (click)="onClick1(cont)">valider</a>-->
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            <!--</span>-->
+          
+          </td>
+          <td *ngIf="cont.date_entre == null">
+            <span class="action_btn">
+              <a  (click)="valider(cont)">Valider</a>
+              <!--<a (click)="deleteContinent(continent.id)">Supprimer</a>-->
+            </span>
+            </td>
+          </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  
+  </mat-card-content>
+  </mat-card>
+  </mat-grid-tile>
+  </mat-grid-list>
+  </div>
+
+

@@ -1,4 +1,4 @@
 export class Role {
-    id!:any;
+    id:any;
     name!:String;
 }

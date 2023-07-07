@@ -39,6 +39,17 @@ import { SortiesComponent } from './sorties/sorties.component';
 import { SortietComponent } from './sortiet/sortiet.component';
 import { RegisterComponent } from './register/register.component';
 import { ListuserComponent } from './listuser/listuser.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { EtagepuComponent } from './etagepu/etagepu.component';
+import { EtageppuComponent } from './etageppu/etageppu.component';
+import { EtagesuComponent } from './etagesu/etagesu.component';
+import { EtagessuComponent } from './etagessu/etagessu.component';
+import { EtagetuComponent } from './etagetu/etagetu.component';
+import { EtagettuComponent } from './etagettu/etagettu.component';
+import { ListuseruComponent } from './listuseru/listuseru.component';
+import { HelppComponent } from './helpp/helpp.component';
+import { DetailComponent } from './detail/detail.component';
+
 
 
 @NgModule({
@@ -66,6 +77,17 @@ import { ListuserComponent } from './listuser/listuser.component';
     SortietComponent,
     RegisterComponent,
     ListuserComponent,
+    UtilisateurComponent,
+    EtagepuComponent,
+    EtageppuComponent,
+    EtagesuComponent,
+    EtagessuComponent,
+    EtagetuComponent,
+    EtagettuComponent,
+    ListuseruComponent,
+    HelppComponent,
+    DetailComponent,
+   
    
   ],
   imports: [
@@ -85,6 +107,7 @@ import { ListuserComponent } from './listuser/listuser.component';
    MatGridListModule,
    MatMenuModule,
    MatDialogModule,
+   
    
   
  
