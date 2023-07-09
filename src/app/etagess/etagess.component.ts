@@ -4,6 +4,7 @@ import { EtagessService } from '../service/etagess.service';
 import { Router } from '@angular/router';
 import { SortiesComponent } from '../sorties/sorties.component';
 import { Chambre } from '../model/chambre';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-etagess',
@@ -18,11 +19,16 @@ currentDate!: Date;
 col!:String;
 nom:any;
 prenom:any;
+nombrecrva:any;
+nombrecrvi:any;
+fileName= 'Etage2-confirmer.xlsx';
 constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etageppService:EtagessService,private router:Router) { this.currentDate = new Date(); }
 
 ngOnInit(): void {
   this.getallChambre();
  // this.cool();
+ this.nombrecrerva();
+ this.nombrecrervi();
 }
 /*public onClick(Chambre:Chambre){
   this.router.navigate(['/admin/etage1',Chambre.id])
@@ -45,6 +51,16 @@ ngOnInit(): void {
       }
       return this.col;
     }*/
+    nombrecrerva(){
+      this.etageppService.nombrecva().subscribe(data => {
+        this.nombrecrva = data;
+      });
+    }
+    nombrecrervi(){
+      this.etageppService.nombrecv().subscribe(data => {
+        this.nombrecrvi = data;
+      });
+    }
     search() {
       this.chambre = this.chambre.filter(res =>{
        return res.nom.toLocaleLowerCase().match(this.nom.toLocaleLowerCase())
@@ -101,4 +117,10 @@ public onClick(Chambre:Chambre){
   });
 }
 
+exportExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.chambre);
+  const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Feuille 1');
+  XLSX.writeFile(workbook, this.fileName);
+}
 }

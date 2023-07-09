@@ -14,7 +14,13 @@
     <div class="form-outline mb-2" id="d">
       <input type="search" class="form-control" [(ngModel)]="appartement" (input)="searcha()" id="datatable-search-input" placeholder="Rech par Appartement....">
       <input type="search" class="form-control" [(ngModel)]="nom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Numéro....">
-      <input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">
+      <!--<input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">-->
+      <select [(ngModel)]="place" (click)="search()" class="form-select" aria-label="Default select example">
+        <option disabled selected>Rech par Type....</option>
+        <option  value="single">Single</option>
+        <option  value="double">Double</option>
+        <option  value="triple">Triple</option>
+      </select>
     </div>
     <div id="datatable">
     </div>
@@ -33,7 +39,7 @@
           <th>Nationalité</th>
           <th>Passeport</th>
           <th>date d'arrivée</th>
-          <th>Valider</th>
+          <th>Confirmer</th>
         </tr>
         </thead>
       <tbody>

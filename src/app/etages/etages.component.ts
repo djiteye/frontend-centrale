@@ -7,6 +7,7 @@ import { ReservationpComponent } from '../reservationp/reservationp.component';
 import { AnnulerComponent } from '../annuler/annuler.component';
 import { ReservationsComponent } from '../reservations/reservations.component';
 import { AnnulersComponent } from '../annulers/annulers.component';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-etages',
@@ -24,6 +25,9 @@ export class EtagesComponent implements OnInit {
   nombrecs:any;
   nombrecd:any;
   nombrect:any;
+  nombrecdipos:any;
+  nombrecreserve:any;
+  fileName= 'Etage2.xlsx';
   constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etagepService:EtagesService,private router:Router) { }
 
   ngOnInit(): void {
@@ -31,6 +35,8 @@ export class EtagesComponent implements OnInit {
     this.nombrecsv();
     this.nombrecdv();
     this.nombrectv();
+    this.nombrecdis();
+    this.nombrecres();
   }
   search() {
     this.chambre = this.chambre.filter(res =>{
@@ -60,6 +66,16 @@ export class EtagesComponent implements OnInit {
   nombrectv(){
     this.etagepService.nombrectv().subscribe(data => {
       this.nombrect = data;
+    });
+  }
+  nombrecdis(){
+    this.etagepService.nombrecd().subscribe(data => {
+      this.nombrecdipos = data;
+    });
+  }
+  nombrecres(){
+    this.etagepService.nombrecR().subscribe(data => {
+      this.nombrecreserve = data;
     });
   }
   /*search(): void {
@@ -147,5 +163,12 @@ deleteChambres(){
     console.log(data);
     this.getallChambre();
   })
+}
+
+exportExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.chambre);
+  const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Feuille 1');
+  XLSX.writeFile(workbook, this.fileName);
 }
 }

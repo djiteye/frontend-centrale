@@ -5,6 +5,7 @@ import { ReservationtComponent } from '../reservationt/reservationt.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EtagetService } from '../service/etaget.service';
 import { Router } from '@angular/router';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-etaget',
@@ -24,6 +25,9 @@ export class EtagetComponent implements OnInit {
   nombrecs:any;
   nombrecd:any;
   nombrect:any;
+  nombrecdipos:any;
+  nombrecreserve:any;
+  fileName= 'Etage3.xlsx';
   constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etagepService:EtagetService,private router:Router) { }
 
   ngOnInit(): void {
@@ -31,6 +35,8 @@ export class EtagetComponent implements OnInit {
     this.nombrecsv();
     this.nombrecdv();
     this.nombrectv();
+    this.nombrecdis();
+    this.nombrecres();
   }
   search() {
     this.chambre = this.chambre.filter(res =>{
@@ -60,6 +66,16 @@ export class EtagetComponent implements OnInit {
   nombrectv(){
     this.etagepService.nombrectv().subscribe(data => {
       this.nombrect = data;
+    });
+  }
+  nombrecdis(){
+    this.etagepService.nombrecd().subscribe(data => {
+      this.nombrecdipos = data;
+    });
+  }
+  nombrecres(){
+    this.etagepService.nombrecR().subscribe(data => {
+      this.nombrecreserve = data;
     });
   }
   /*search(): void {
@@ -149,4 +165,10 @@ deleteChambres(){
   })
 }
 
+exportExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.chambre);
+  const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Feuille 1');
+  XLSX.writeFile(workbook, this.fileName);
+}
 }

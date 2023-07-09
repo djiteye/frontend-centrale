@@ -4,7 +4,7 @@
     mat-icon-button
     (click)="drawer.toggle()"
    ><mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button>
-   <img src="assets/UCG_honris_logo.jpg" alt="université centrale de tunis" style="width: 200px; height: 40px;">
+   <img src="assets/UCG_honris_logo.jpg" alt="université centrale de tunis" style="width: 150px; height: 55px; border-radius: 4px;">
    <h1>MAISON DE L'ETUDIANT</h1>
    <div class="spacer"></div>
    <button mat-button class="btn btn-outline-light">
@@ -14,9 +14,9 @@
   <span class="action_btn">
     <ul class="dropdown-menu">
       <li><a class="dropdown-item">
-   <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu1']">ETAGE-1-P</button></a></li>
+   <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu1']">ETAGE-1-R</button></a></li>
    <li><a class="dropdown-item">
-    <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu11']">ETAGE-1-D</button></a></li>
+    <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu11']">ETAGE-1-C</button></a></li>
     </ul></span>
   </button>
    <button mat-button class="btn btn-outline-light">
@@ -26,9 +26,9 @@
     <span class="action_btn">
       <ul class="dropdown-menu">
         <li><a class="dropdown-item">
-     <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu2']">ETAGE-2-P</button></a></li>
+     <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu2']">ETAGE-2-R</button></a></li>
      <li><a class="dropdown-item">
-      <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu22']">ETAGE-2-D</button></a></li>
+      <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu22']">ETAGE-2-C</button></a></li>
       </ul></span>
   </button>
    <button mat-button class="btn btn-outline-light">
@@ -38,9 +38,9 @@
     <span class="action_btn">
       <ul class="dropdown-menu">
         <li><a class="dropdown-item">
-     <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu3']">ETAGE-3-P</button></a></li>
+     <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu3']">ETAGE-3-R</button></a></li>
      <li><a class="dropdown-item">
-      <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu33']">ETAGE-3-D</button></a></li>
+      <button mat-button class="btn btn-outline-light" [routerLink]="['./etageu33']">ETAGE-3-C</button></a></li>
       </ul></span>
   </button>
    <button mat-button class="btn btn-outline-warning" (click)="lout()"><mat-icon aria-label="Side nav toggle icon">logout</mat-icon></button>
@@ -56,7 +56,7 @@
     </div>
      <h4 class="username">{{use.username}}</h4>
      <h4 class="email">{{use.email}}</h4>
-     <p class="genre">sexe:{{use.genre}}</p>
+     <p class="genre">Genre:{{use.genre}}</p>
   <br>
      <mat-divider></mat-divider>
      <button mat-button class="menu-button" [routerLink]="['/utilisateur']">

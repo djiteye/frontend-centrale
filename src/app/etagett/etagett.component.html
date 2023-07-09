@@ -6,6 +6,9 @@
             <mat-card-title>
              Liste des Chambres confirmées à l'étage3
             <!-- {{ currentDate | date:'medium' }}-->
+            <div id="x">
+              [Place-Réellement-Vide: {{nombrecrvi}} / Place-Réellement-Validée: {{nombrecrva}}]
+            </div>
             </mat-card-title>
           </mat-card-header>
    <mat-card-content>
@@ -80,7 +83,11 @@
       </tbody>
     </table>
   </div>
-  
+  <br>
+  <button mat-icon-button  class="btn btn-outline-succes" (click)="exportExcel()">
+    <span class='material-icons'>download</span>
+      Exporter vers Excel
+    </button>
   </mat-card-content>
   </mat-card>
   </mat-grid-tile>

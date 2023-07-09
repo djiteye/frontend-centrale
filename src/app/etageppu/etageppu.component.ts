@@ -18,11 +18,15 @@ currentDate!: Date;
 col!:String;
 nom:any;
 prenom:any;
+nombrecrva:any;
+nombrecrvi:any;
 constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etageppService:EtageppService,private router:Router) { this.currentDate = new Date(); }
 
 ngOnInit(): void {
   this.getallChambre();
  // this.cool();
+ this.nombrecrerva();
+ this.nombrecrervi();
 }
 /*public onClick(Chambre:Chambre){
   this.router.navigate(['/admin/etage1',Chambre.id])
@@ -45,6 +49,16 @@ ngOnInit(): void {
       }
       return this.col;
     }*/
+    nombrecrerva(){
+      this.etageppService.nombrecva().subscribe(data => {
+        this.nombrecrva = data;
+      });
+    }
+    nombrecrervi(){
+      this.etageppService.nombrecv().subscribe(data => {
+        this.nombrecrvi = data;
+      });
+    }
     search() {
       this.chambre = this.chambre.filter(res =>{
        return res.nom.toLocaleLowerCase().match(this.nom.toLocaleLowerCase())

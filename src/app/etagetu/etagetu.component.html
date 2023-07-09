@@ -6,9 +6,14 @@
             <mat-card-title>
              Liste des Chambres de l'étage3
               
+             <br><br>
               <div id="x">
-              [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
-            </div>
+                [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
+              </div>
+              <div id="x">
+                [Place-Disponible: {{nombrecdipos}} / Place-Reservée: {{nombrecreserve}}]
+              </div>
+              <br><br>
               
             </mat-card-title>
           </mat-card-header>
@@ -16,7 +21,13 @@
     <div class="form-outline mb-2" id="d">
       <input type="search" class="form-control" [(ngModel)]="appartement" (input)="searcha()" id="datatable-search-input" placeholder="Rech par Appartement....">
       <input type="search" class="form-control" [(ngModel)]="nom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Numéro....">
-      <input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">
+      <!--<input type="search" class="form-control" [(ngModel)]="place" (input)="search()" id="datatable-search-input" placeholder="Rech par Type....">-->
+      <select [(ngModel)]="place" (click)="search()" class="form-select" aria-label="Default select example">
+        <option disabled selected>Rech par Type....</option>
+        <option  value="single">Single</option>
+        <option  value="double">Double</option>
+        <option  value="triple">Triple</option>
+      </select>
     </div>
     <div id="datatable">
     </div>
@@ -35,7 +46,7 @@
           <th>Nationalité</th>
           <th>Passeport</th>
           <th>date d'arrivée</th>
-          <th>Valider</th>
+          <th>Confirmer</th>
 
         </tr>
         </thead>

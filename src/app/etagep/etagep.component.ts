@@ -7,7 +7,8 @@ import { Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { group } from '@angular/animations';
 import { AnnulerComponent } from '../annuler/annuler.component';
 import { ReservationpComponent } from '../reservationp/reservationp.component';
-
+import { writeXLSX } from 'xlsx';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-etagep',
@@ -26,6 +27,9 @@ export class EtagepComponent implements OnInit {
   nombrecs:any;
   nombrecd:any;
   nombrect:any;
+  nombrecdipos:any;
+  nombrecreserve:any;
+  fileName= 'Etage1.xlsx';
   constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etagepService:EtagepService,private router:Router) { }
 
   ngOnInit(): void {
@@ -33,6 +37,8 @@ export class EtagepComponent implements OnInit {
     this.nombrecsv();
     this.nombrecdv();
     this.nombrectv();
+    this.nombrecdis();
+    this.nombrecres();
   }
   search() {
     this.chambre = this.chambre.filter(res =>{
@@ -62,6 +68,16 @@ export class EtagepComponent implements OnInit {
   nombrectv(){
     this.etagepService.nombrectv().subscribe(data => {
       this.nombrect = data;
+    });
+  }
+  nombrecdis(){
+    this.etagepService.nombrecd().subscribe(data => {
+      this.nombrecdipos = data;
+    });
+  }
+  nombrecres(){
+    this.etagepService.nombrecR().subscribe(data => {
+      this.nombrecreserve = data;
     });
   }
   /*search(): void {
@@ -151,6 +167,25 @@ deleteChambres(){
   })
 }
 
+exportexcelle(): void
+  {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+ 
+  }
+  exportExcel(): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.chambre);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Feuille 1');
+    XLSX.writeFile(workbook, this.fileName);
+  }
 
-
+ 
 }

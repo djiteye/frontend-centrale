@@ -37,4 +37,14 @@ export class EtagessService {
  /* deleteChambres(): Observable<Chambre> {
     return this.httpService.delete<Chambre>(`${this.REST_API_SERVER}/deletes`);
 }*/
+//chambre réellement validée
+nombrecva(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCVA`).pipe(
+    map((res: any) => res));
+}
+//chambre réellement vide
+nombrecv(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCV`).pipe(
+    map((res: any) => res));
+}
 }

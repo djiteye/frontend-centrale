@@ -42,6 +42,17 @@ nombrectv(): Observable<Int32Array>{
   return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCTV`).pipe(
     map((res: any) => res));
 }
+//chambre dispo
+nombrecd(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCD`).pipe(
+    map((res: any) => res));
+}
+//chambre reservée
+nombrecR(): Observable<Int32Array>{
+  return this.httpService.get<Int32Array>(`${this.REST_API_SERVER}/NCR`).pipe(
+    map((res: any) => res));
+}
+
   
   /*deleteContinent(id: number): Observable<Continent> {
       return this.httpService.delete<Continent>(`${this.REST_API_SERVER}/deleteContinent/${id}`);

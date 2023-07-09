@@ -22,6 +22,8 @@ export class EtagesuComponent implements OnInit {
   nombrecs:any;
   nombrecd:any;
   nombrect:any;
+  nombrecdipos:any;
+  nombrecreserve:any;
   constructor(private renderer: Renderer2,private dialogRef:MatDialog, private etagepService:EtagesService,private router:Router) { }
 
   ngOnInit(): void {
@@ -29,6 +31,8 @@ export class EtagesuComponent implements OnInit {
     this.nombrecsv();
     this.nombrecdv();
     this.nombrectv();
+    this.nombrecdis();
+    this.nombrecres();
   }
   search() {
     this.chambre = this.chambre.filter(res =>{
@@ -58,6 +62,16 @@ export class EtagesuComponent implements OnInit {
   nombrectv(){
     this.etagepService.nombrectv().subscribe(data => {
       this.nombrect = data;
+    });
+  }
+  nombrecdis(){
+    this.etagepService.nombrecd().subscribe(data => {
+      this.nombrecdipos = data;
+    });
+  }
+  nombrecres(){
+    this.etagepService.nombrecR().subscribe(data => {
+      this.nombrecreserve = data;
     });
   }
   /*search(): void {
