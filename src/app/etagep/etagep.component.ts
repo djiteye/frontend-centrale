@@ -9,6 +9,7 @@ import { AnnulerComponent } from '../annuler/annuler.component';
 import { ReservationpComponent } from '../reservationp/reservationp.component';
 import { writeXLSX } from 'xlsx';
 import * as XLSX from 'xlsx';
+import { DechargepComponent } from '../dechargep/dechargep.component';
 
 @Component({
   selector: 'app-etagep',
@@ -119,6 +120,14 @@ export class EtagepComponent implements OnInit {
       }
     });
   }
+  public decharge(){
+    this.dialogRef.open(DechargepComponent,{
+      width:'60%',
+      enterAnimationDuration:'1000ms',
+      exitAnimationDuration:'1000ms',
+      
+    });
+  }
   /*public onClick(Chambre:Chambre){
     this.router.navigate(['/admin/etage1',Chambre.id])
     }*/
@@ -160,12 +169,12 @@ public confirmer(Chambre:Chambre){
     this.getallContinents();
   })
 }*/
-deleteChambres(){
+/*deleteChambres(){
   this.etagepService.deleteChambres().subscribe( data => {
     console.log(data);
     this.getallChambre();
   })
-}
+}*/
 
 exportexcelle(): void
   {

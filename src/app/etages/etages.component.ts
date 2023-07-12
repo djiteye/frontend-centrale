@@ -8,6 +8,7 @@ import { AnnulerComponent } from '../annuler/annuler.component';
 import { ReservationsComponent } from '../reservations/reservations.component';
 import { AnnulersComponent } from '../annulers/annulers.component';
 import * as XLSX from 'xlsx';
+import { DechargesComponent } from '../decharges/decharges.component';
 
 @Component({
   selector: 'app-etages',
@@ -117,6 +118,14 @@ export class EtagesComponent implements OnInit {
       }
     });
   }
+  public decharge(){
+    this.dialogRef.open(DechargesComponent,{
+      width:'60%',
+      enterAnimationDuration:'1000ms',
+      exitAnimationDuration:'1000ms',
+      
+    });
+  }
   /*public onClick(Chambre:Chambre){
     this.router.navigate(['/admin/etage1',Chambre.id])
     }*/
@@ -158,12 +167,12 @@ public confirmer(Chambre:Chambre){
     this.getallContinents();
   })
 }*/
-deleteChambres(){
+/*deleteChambres(){
   this.etagepService.deleteChambres().subscribe( data => {
     console.log(data);
     this.getallChambre();
   })
-}
+}*/
 
 exportExcel(): void {
   const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.chambre);

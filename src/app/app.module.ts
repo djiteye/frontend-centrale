@@ -49,6 +49,9 @@ import { EtagettuComponent } from './etagettu/etagettu.component';
 import { ListuseruComponent } from './listuseru/listuseru.component';
 import { HelppComponent } from './helpp/helpp.component';
 import { DetailComponent } from './detail/detail.component';
+import { DechargepComponent } from './dechargep/dechargep.component';
+import { DechargesComponent } from './decharges/decharges.component';
+import { DechargetComponent } from './decharget/decharget.component';
 
 
 
@@ -87,6 +90,9 @@ import { DetailComponent } from './detail/detail.component';
     ListuseruComponent,
     HelppComponent,
     DetailComponent,
+    DechargepComponent,
+    DechargesComponent,
+    DechargetComponent,
    
    
   ],
