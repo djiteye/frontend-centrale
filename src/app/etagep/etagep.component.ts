@@ -156,6 +156,7 @@ public confirmer(Chambre:Chambre){
   // console.log(this.user)
    this.etagepService.confirmer(Chambre.id).subscribe((disponible: boolean) => {
      this.disponibilite = disponible;
+     this.getallChambre();
      //alert("preparation succesfully");
      //this.router.navigate(['/admin/etage1']);
    },(error: any)=>{

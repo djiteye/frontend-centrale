@@ -80,6 +80,7 @@ public valider(Chambre:Chambre){
 // console.log(this.user)
  this.etageppService.valider(Chambre.id).subscribe((disponible: boolean) => {
    this.disponibilite = disponible;
+   this.getallChambre();
    //alert("preparation succesfully");
    this.router.navigate(['/admin/etage22']);
  },(error: any)=>{

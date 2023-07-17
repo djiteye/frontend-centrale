@@ -43,7 +43,7 @@ export class ReservationtComponent implements OnInit {
       
       this.ref.close();
       this.goToContinentList();
-      
+      location.reload();
     }
     , error => console.log(error));
   }

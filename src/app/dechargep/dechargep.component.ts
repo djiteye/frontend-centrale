@@ -21,6 +21,8 @@ chambre:any;
       console.log(data);
       this.ref.close();
       this.getallChambre();
+      this.goToContinentList();
+      location.reload();
     })
   }
   private getallChambre(){
@@ -28,4 +30,8 @@ chambre:any;
       this.chambre = data;
     });
 }
+goToContinentList(){
+  this.router.navigate(['/admin/etage1']);
+}
+
 }

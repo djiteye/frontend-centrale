@@ -15,6 +15,7 @@ export class UtilisateurComponent implements OnInit {
   user:User= new User();
   id:any;
   genr:String="homme";
+  usa:any;
   //param: any;
   //paramObject: any;
   
@@ -25,6 +26,8 @@ export class UtilisateurComponent implements OnInit {
       //this.getUser();
      this.use;
      this.genr;
+     this.getUser(this.use.userId);
+     this.usa;
     }
    /* getUser(): void{
       this.id=this.user.id;
@@ -40,12 +43,14 @@ export class UtilisateurComponent implements OnInit {
      this.route.navigate(['/menu']);
     }
     lout():void{
-      sessionStorage.removeItem('use');
-      this.route.navigate(['/login']);
+      this.userService.logout(this.use).subscribe(data=> {
+        sessionStorage.removeItem('use');
+        this.route.navigate(['/login']);
+      },error=>alert("error"));
     }
-    public getUser(id:number){
+    public getUser(id:any){
       this.userService.getUser(id).subscribe(data => {
-        this.user = data;
+        this.usa = data;
        // this.rol = data;
       });
     }

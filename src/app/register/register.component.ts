@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
       //alert("login succesfully");
       this.ref.close();
       this.route.navigate(['/admin/users']);
+      location.reload();
 
     },error=>alert("error"));
    

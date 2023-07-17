@@ -4,6 +4,8 @@ import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { Role } from '../model/role';
+import { UserService } from '../service/user.service';
+
 
 
 @Component({
@@ -13,11 +15,12 @@ import { Role } from '../model/role';
 })
 export class LoginComponent implements OnInit {
   user: User=new User();
-  ua:User=new User();
+  usa:any;
+  ua:any;
   us:any;
   //paramObject: Params | null | undefined;
  
-  constructor(private lserviceService: LoginService,private route:Router) { }
+  constructor(private lserviceService: LoginService,private route:Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.us;
@@ -32,15 +35,20 @@ export class LoginComponent implements OnInit {
     this.lserviceService.loginuser(this.user).subscribe(data=>{
       //alert("login succesfully");
       this.us=data;
-      console.log(this.us)
+      console.log(this.us);
+      this.userService.getUser(this.us.userId).subscribe(data => {
+        this.ua = data;
+        console.log(this.ua);
+       // this.rol = data;
+      
       sessionStorage.setItem('use', JSON.stringify(this.us));
-      if(this.hasRole("ROLE_ADMIN", this.us.role)){
+      if(this.hasRole("ROLE_ADMIN", this.ua.role)){
  
         this.route.navigate(['/admin']);
       }else{
         this.route.navigate(['/utilisateur']);
       }
-      
+    });
      // this.route.navigate(['/admin']);
     },error=>alert("error"));
    
@@ -50,6 +58,12 @@ export class LoginComponent implements OnInit {
   hasRole(roleName: string, rol: Role[]): boolean {
     return rol.some(role => role.name === roleName);
   }
+ /* public getUser(id:any){
+    this.userService.getUser(id).subscribe(data => {
+      this.usa = data;
+     // this.rol = data;
+    });
+  }*/
 
    /* storeAuthenticatedUser(user: User): void {
     sessionStorage.setItem('authenticatedUser', JSON.stringify(user));

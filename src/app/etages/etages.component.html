@@ -4,13 +4,7 @@
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
-             Liste des Chambres
-              <button (click)="preparation()" class="btn btn-outline-succes" id="b">
-                <mat-icon><span class="material-icons" >
-                  add_comment
-                  </span></mat-icon>
-                  <span>Préparation de l'ETAGE-2</span>
-              </button>
+             Liste des Chambres  à l'étage-2
               
               <button (click)="decharge()" mat-icon-button class="more-button" >
                 <mat-icon><span class="material-icons" >
@@ -18,14 +12,15 @@
                   </span></mat-icon>
               </button>
               <br><br>
-              <div id="x">
-                [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
-              </div>
-              <div id="x">
-                [Place-Disponible: {{nombrecdipos}} / Place-Reservée: {{nombrecreserve}}]
-              </div>
+              
               <br><br>
             </mat-card-title>
+            <div id="x">
+              [Single-Vide: {{nombrecs}}] [Double-vide: {{nombrecd}}] [Triple-vide: {{nombrect}}]
+            </div>
+            <div id="x">
+              [Place-Disponible: {{nombrecdipos}} / Place-Reservée: {{nombrecreserve}}]
+            </div>
           </mat-card-header>
    <mat-card-content>
     <div class="form-outline mb-2" id="d">

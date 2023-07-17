@@ -17,24 +17,24 @@
       <div class="table_responsive">
       <table>
         <thead>
-        <tr>
-            <th>Id</th>
-          <th>Username</th>
-          <th>Email</th>
-           <th>Genre</th>
-          <!--<th>role</th>-->
-          
-         
-        </tr>
-        </thead>
-      <tbody>
-     
-        <tr *ngFor = "let user of users">
-          <td> {{ user.id}} </td>
-          <td> {{ user.username}} </td>
-          <td> {{ user.email }} </td>
-          <td> {{ user.genre }} </td>
-          <!--<td > role: {{ re }} </td>-->
+          <tr>
+             <!-- <th>Id</th>-->
+            <th>Username</th>
+            <th>Email</th>
+             <th>Genre</th>
+            <!--<th>role</th>-->
+            
+            <th>Action</th>
+          </tr>
+          </thead>
+        <tbody>
+       
+          <tr *ngFor = "let user of users">
+            <!--<td> {{ user.id}} </td>-->
+            <td> {{ user.username}} </td>
+            <td> {{ user.email }} </td>
+            <td> {{ user.genre }} </td>
+            <!--<td > role: {{ re }} </td>-->
     
         </tr>
        

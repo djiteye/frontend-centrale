@@ -26,6 +26,11 @@ deleteChambres(){
     console.log(data);
     this.ref.close();
     this.getallChambre();
+    this.goToContinentList();
+    location.reload();
   })
+}
+goToContinentList(){
+  this.router.navigate(['/admin/etage3']);
 }
 }

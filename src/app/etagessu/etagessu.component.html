@@ -4,14 +4,16 @@
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
-             Liste des Chambres confirmées à létage2
+             Liste des Chambres confirmées à l'étage-2
             <!-- {{ currentDate | date:'medium' }}-->
+           
+            </mat-card-title>
             <div id="x">
               [Place-Réellement-Vide: {{nombrecrvi}} / Place-Réellement-Validée: {{nombrecrva}}]
             </div>
-            </mat-card-title>
           </mat-card-header>
    <mat-card-content>
+    <br><br>
     <div class="form-outline mb-2" id="d">
       <input type="search" class="form-control" [(ngModel)]="nom" (input)="search()" id="datatable-search-input" placeholder="Rech par Nom....">
       <input type="search" class="form-control" [(ngModel)]="prenom" (input)="searchn()" id="datatable-search-input" placeholder="Rech par Prenom....">

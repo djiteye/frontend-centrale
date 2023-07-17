@@ -5,7 +5,7 @@
     (click)="drawer.toggle()"
    ><mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button>
    <img src="assets/UCG_honris_logo.jpg" alt="université centrale de tunis" style="width: 150px; height: 55px; border-radius: 4px;">
-   <h1>MAISON DE L'ETUDIANT</h1>
+   <h1 id="h">MAISON DE L'ETUDIANT</h1>
    <div class="spacer"></div>
    <button mat-button class="btn btn-outline-light">
    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,15 +48,15 @@
   </mat-toolbar>
   <mat-sidenav-container>
     <mat-sidenav #drawer mode="side" opened="false">
-      <div id="a" *ngIf="use.genre == genr">
+      <div id="a" *ngIf="usa.genre == genr">
       <img class="avatar mat-elevation-z8" src="assets/OIP.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
     </div>
-    <div id="a" *ngIf="use.genre != genr">
+    <div id="a" *ngIf="usa.genre != genr">
       <img class="avatar mat-elevation-z8" src="assets/OIP-f.jpg" alt="photo indiquant le genre de l'utilisateur" style="width: 150px; height: 150px;">
     </div>
-     <h4 class="username">{{use.username}}</h4>
-     <h4 class="email">{{use.email}}</h4>
-     <p class="genre">Genre:{{use.genre}}</p>
+     <h4 class="username">{{usa.username}}</h4>
+     <h4 class="email">{{usa.email}}</h4>
+     <p class="genre">Genre:{{usa.genre}}</p>
   <br>
      <mat-divider></mat-divider>
      <button mat-button class="menu-button" [routerLink]="['/utilisateur']">

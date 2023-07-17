@@ -30,6 +30,7 @@ export class AnnulerComponent implements OnInit {
     this.etagepService.updateChambre(this.inputdata.id, this.reservationChambreData).subscribe( data =>{
       this.ref.close();
       this.goToContinentList();
+      location.reload();
     }
     , error => console.log(error));
   }

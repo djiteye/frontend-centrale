@@ -49,7 +49,7 @@ export class SortieComponent implements OnInit {
       
       this.ref.close();
       this.goToContinentList();
-      
+      location.reload();
     }
     , error => console.log(error));
   }
