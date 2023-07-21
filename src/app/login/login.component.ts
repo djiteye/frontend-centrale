@@ -31,17 +31,18 @@ export class LoginComponent implements OnInit {
 
  
   userlogin() {
-    console.log(this.user)
+    //console.log(this.user)
     this.lserviceService.loginuser(this.user).subscribe(data=>{
       //alert("login succesfully");
       this.us=data;
-      console.log(this.us);
+     // console.log(this.us);
+     
       this.userService.getUser(this.us.userId).subscribe(data => {
         this.ua = data;
-        console.log(this.ua);
+       // console.log(this.ua);
        // this.rol = data;
       
-      sessionStorage.setItem('use', JSON.stringify(this.us));
+      localStorage.setItem('use', JSON.stringify(this.us));
       if(this.hasRole("ROLE_ADMIN", this.ua.role)){
  
         this.route.navigate(['/admin']);

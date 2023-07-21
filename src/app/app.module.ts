@@ -14,7 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatCardModule } from '@angular/material/card';
@@ -52,6 +52,7 @@ import { DetailComponent } from './detail/detail.component';
 import { DechargepComponent } from './dechargep/dechargep.component';
 import { DechargesComponent } from './decharges/decharges.component';
 import { DechargetComponent } from './decharget/decharget.component';
+import { RefreshTokenInterceptorInterceptor } from './refresh-token-interceptor.interceptor';
 
 
 
@@ -118,7 +119,13 @@ import { DechargetComponent } from './decharget/decharget.component';
   
  
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

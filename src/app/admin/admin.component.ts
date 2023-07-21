@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,6 +18,7 @@ user:User= new User();
 id:any;
 genr:String="homme";
 usa:any;
+re:any;
 disponibilite:any;
 //param: any;
 //paramObject: any;
@@ -31,6 +32,8 @@ disponibilite:any;
    this.genr;
    this.getUser(this.use.userId);
    this.usa;
+   //this.refresh();
+  
   }
  /* getUser(): void{
     this.id=this.user.id;
@@ -39,7 +42,7 @@ disponibilite:any;
       },error=>alert("error"));
       
   }*/
-   userString = sessionStorage.getItem('use');
+   userString = localStorage.getItem('use');
  use = this.userString ? JSON.parse(this.userString) : null;
 
   save(User:string):void{
@@ -48,7 +51,7 @@ disponibilite:any;
   }
   lout():void{
     this.userService.logout(this.use).subscribe(data=> {
-      sessionStorage.removeItem('use');
+      localStorage.removeItem('use');
       this.route.navigate(['/login']);
     },error=>alert("error"));
     
@@ -92,5 +95,12 @@ disponibilite:any;
        console.error('Erreur:', error);
      }); 
    }
+
+     refresh(): void{
+    this.userService.refreshAuthToken().subscribe(data => {
+      this.re = data;
+     // this.rol = data;
+    });
+  }
   
 }

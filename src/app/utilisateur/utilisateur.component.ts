@@ -14,8 +14,9 @@ export class UtilisateurComponent implements OnInit {
 
   user:User= new User();
   id:any;
-  genr:String="homme";
+  genr:any="homme";
   usa:any;
+  re:any;
   //param: any;
   //paramObject: any;
   
@@ -36,7 +37,7 @@ export class UtilisateurComponent implements OnInit {
         },error=>alert("error"));
         
     }*/
-     userString = sessionStorage.getItem('use');
+     userString = localStorage.getItem('use');
    use = this.userString ? JSON.parse(this.userString) : null;
     save(User:string):void{
       localStorage.setItem('user', User);
@@ -44,13 +45,20 @@ export class UtilisateurComponent implements OnInit {
     }
     lout():void{
       this.userService.logout(this.use).subscribe(data=> {
-        sessionStorage.removeItem('use');
+        localStorage.removeItem('use');
         this.route.navigate(['/login']);
       },error=>alert("error"));
     }
     public getUser(id:any){
       this.userService.getUser(id).subscribe(data => {
         this.usa = data;
+       // this.rol = data;
+      });
+    }
+
+    refresh(): void{
+      this.userService.refreshAuthToken().subscribe(data => {
+        this.re = data;
        // this.rol = data;
       });
     }

@@ -56,7 +56,9 @@
   </div>
    <h4 class="username">{{usa.username}}</h4>
    <h4 class="email">{{usa.email}}</h4>
+   <div *ngIf="usa.genre">
    <p class="genre">Genre: {{usa.genre}}</p>
+  </div>
 <br>
    <mat-divider></mat-divider>
    <button mat-button class="menu-button" [routerLink]="['/admin']">
