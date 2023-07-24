@@ -57,11 +57,12 @@ refreshAuthToken(): Observable<any> {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${refreshToken}`);
   return this.httpService.post<any>(this.REST_API_SERVERR, {}, { headers });
 }
-userString = localStorage.getItem('use');
-  use = this.userString ? JSON.parse(this.userString) : null;
-lou(){
- this.logout(this.use).subscribe(data=>{
-  return this.route.navigate(['/login']);
- },error=>console.log("error for logout"));
-}
+
+  getAccessToken(){
+    const userString = localStorage.getItem('use');
+const use = userString ? JSON.parse(userString) : null;
+ const AccessToken = use ? use.accessToken : null;
+    return AccessToken;
+  }
+
 }

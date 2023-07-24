@@ -24,40 +24,41 @@ import { EtagettuComponent } from './etagettu/etagettu.component';
 import { ListuseruComponent } from './listuseru/listuseru.component';
 import { HelppComponent } from './helpp/helpp.component';
 import { DetailComponent } from './detail/detail.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path : '', component :  LoginComponent },
   { path : 'login', component :  LoginComponent },
   {path:'admin',redirectTo:'admin/etage1',pathMatch:'full'},
-  { path : 'admin', component :  AdminComponent, canActivateChild: [],
+  { path : 'admin', component :  AdminComponent,canActivate:[AuthGuard], canActivateChild: [],
   children:[
-    {path:'etage1', component: EtagepComponent, pathMatch: 'full'},
-    {path:'etage11', component: EtageppComponent, pathMatch: 'full'},
-    {path:'etage2', component: EtagesComponent, pathMatch: 'full'},
-    {path:'etage22', component: EtagessComponent, pathMatch: 'full'},
-    {path:'etage3', component: EtagetComponent, pathMatch: 'full'},
-    {path:'etage33', component: EtagettComponent, pathMatch: 'full'},
-    {path:'users', component: ListuserComponent, pathMatch: 'full'},
-    {path:'help', component: HelppComponent, pathMatch: 'full'},
-    {path:'detail', component: DetailComponent, pathMatch: 'full'}
+    {path:'etage1', component: EtagepComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etage11', component: EtageppComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etage2', component: EtagesComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etage22', component: EtagessComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etage3', component: EtagetComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etage33', component: EtagettComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'users', component: ListuserComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'help', component: HelppComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'detail', component: DetailComponent,canActivate:[AuthGuard], pathMatch: 'full'}
     
    
   ]  },
-  {path:'admin/etage1/:id',component:UpdatepComponent },
-  {path:'admin/etage2/:id',component:UpdatesComponent },
-  {path:'admin/etage3/:id',component:UpdatetComponent },
+  {path:'admin/etage1/:id',component:UpdatepComponent,canActivate:[AuthGuard] },
+  {path:'admin/etage2/:id',component:UpdatesComponent ,canActivate:[AuthGuard]},
+  {path:'admin/etage3/:id',component:UpdatetComponent, canActivate:[AuthGuard] },
   {path:'utilisateur',redirectTo:'utilisateur/etageu1',pathMatch:'full'},
-  {path:'utilisateur',component :  UtilisateurComponent,canActivateChild: [],
+  {path:'utilisateur',component :  UtilisateurComponent,canActivate:[AuthGuard],canActivateChild: [],
   children:[
-    {path:'etageu1', component: EtagepuComponent, pathMatch: 'full'},
-    {path:'etageu11', component: EtageppuComponent, pathMatch: 'full'},
-    {path:'etageu2', component: EtagesuComponent, pathMatch: 'full'},
-    {path:'etageu22', component: EtagessuComponent, pathMatch: 'full'},
-    {path:'etageu3', component: EtagetuComponent, pathMatch: 'full'},
-    {path:'etageu33', component: EtagettuComponent, pathMatch: 'full'},
-    {path:'usersu', component: ListuseruComponent, pathMatch: 'full'},
-    {path:'help', component: HelppComponent, pathMatch: 'full'},
-    {path:'detail', component: DetailComponent, pathMatch: 'full'}
+    {path:'etageu1', component: EtagepuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etageu11', component: EtageppuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etageu2', component: EtagesuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etageu22', component: EtagessuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etageu3', component: EtagetuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'etageu33', component: EtagettuComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'usersu', component: ListuseruComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'help', component: HelppComponent,canActivate:[AuthGuard], pathMatch: 'full'},
+    {path:'detail', component: DetailComponent,canActivate:[AuthGuard], pathMatch: 'full'}
 ]}
  
 ];

@@ -132,8 +132,7 @@ public preparation(): void{
     alert("preparation succesfully");
     //this.router.navigate(['/admin/etage1']);
   },(error: any)=>{
-    alert("votre étage est déjà préparé");
-    console.error('Erreur:', error);
+    console.log(error);
   }); 
 }
 
@@ -144,8 +143,7 @@ public confirmer(Chambre:Chambre){
      //alert("preparation succesfully");
      //this.router.navigate(['/admin/etage1']);
    },(error: any)=>{
-     alert("error for confirm reservation");
-     console.error('Erreur:', error);
+    console.log(error);
    }); 
  }
 /*deleteContinent(id: any){

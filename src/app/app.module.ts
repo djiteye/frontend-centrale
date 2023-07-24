@@ -53,6 +53,7 @@ import { DechargepComponent } from './dechargep/dechargep.component';
 import { DechargesComponent } from './decharges/decharges.component';
 import { DechargetComponent } from './decharget/decharget.component';
 import { RefreshTokenInterceptorInterceptor } from './refresh-token-interceptor.interceptor';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -124,7 +125,8 @@ import { RefreshTokenInterceptorInterceptor } from './refresh-token-interceptor.
       provide: HTTP_INTERCEPTORS,
       useClass: RefreshTokenInterceptorInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -86,8 +86,7 @@ public valider(Chambre:Chambre){
    //alert("preparation succesfully");
    this.router.navigate(['/admin/etage33']);
  },(error: any)=>{
-   alert("error for validate reservation");
-   console.error('Erreur:', error);
+  console.log(error);
  }); 
 }
 /*deleteContinent(id: any){

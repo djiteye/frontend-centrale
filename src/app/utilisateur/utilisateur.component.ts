@@ -29,6 +29,7 @@ export class UtilisateurComponent implements OnInit {
      this.genr;
      this.getUser(this.use.userId);
      this.usa;
+     this.getAccT();
     }
    /* getUser(): void{
       this.id=this.user.id;
@@ -44,11 +45,19 @@ export class UtilisateurComponent implements OnInit {
      this.route.navigate(['/menu']);
     }
     lout():void{
+        localStorage.removeItem('use');
+        this.route.navigate(['/login']);
+    }
+
+    getAccT(){
+      return this.userService.getAccessToken();
+     }
+   /* lout():void{
       this.userService.logout(this.use).subscribe(data=> {
         localStorage.removeItem('use');
         this.route.navigate(['/login']);
       },error=>alert("error"));
-    }
+    }*/
     public getUser(id:any){
       this.userService.getUser(id).subscribe(data => {
         this.usa = data;

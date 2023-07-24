@@ -33,7 +33,9 @@ disponibilite:any;
    this.getUser(this.use.userId);
    this.usa;
    //this.refresh();
-  
+ // console.log(this.AccessToken);
+ //console.log(this.getAccT());
+ this.getAccT()
   }
  /* getUser(): void{
     this.id=this.user.id;
@@ -44,18 +46,27 @@ disponibilite:any;
   }*/
    userString = localStorage.getItem('use');
  use = this.userString ? JSON.parse(this.userString) : null;
+ AccessToken = this.use ? this.use.accessToken : null;
+ 
+ getAccT(){
+  return this.userService.getAccessToken();
+ }
 
   save(User:string):void{
     localStorage.setItem('user', User);
    this.route.navigate(['/menu']);
   }
   lout():void{
+    localStorage.removeItem('use');
+    this.route.navigate(['/login']);
+}
+  /*lout():void{
     this.userService.logout(this.use).subscribe(data=> {
       localStorage.removeItem('use');
       this.route.navigate(['/login']);
     },error=>alert("error"));
     
-  }
+  }*/
   public getUser(id:any){
     this.userService.getUser(id).subscribe(data => {
       this.usa = data;
@@ -69,8 +80,7 @@ disponibilite:any;
        alert("preparation succesfully");
        //this.router.navigate(['/admin/etage1']);
      },(error: any)=>{
-       alert("votre étage-1 est déjà préparé");
-       console.error('Erreur:', error);
+      console.log(error);
      }); 
    }
    public preparations(): void{
@@ -80,8 +90,7 @@ disponibilite:any;
        alert("preparation succesfully");
        //this.router.navigate(['/admin/etage1']);
      },(error: any)=>{
-       alert("votre étage-2 est déjà préparé");
-       console.error('Erreur:', error);
+      console.log(error);
      }); 
    }
    public preparationt(): void{
@@ -91,8 +100,7 @@ disponibilite:any;
        alert("preparation succesfully");
        //this.router.navigate(['/admin/etage1']);
      },(error: any)=>{
-       alert("votre étage-3 est déjà préparé");
-       console.error('Erreur:', error);
+    console.log(error);
      }); 
    }
 
