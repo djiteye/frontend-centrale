@@ -25,10 +25,13 @@ import { ListuseruComponent } from './listuseru/listuseru.component';
 import { HelppComponent } from './helpp/helpp.component';
 import { DetailComponent } from './detail/detail.component';
 import { AuthGuard } from './auth.guard';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+
 
 const routes: Routes = [
   { path : '', component :  LoginComponent },
   { path : 'login', component :  LoginComponent },
+  { path : 'error', component :  ErrorpageComponent ,pathMatch:'full'},
   {path:'admin',redirectTo:'admin/etage1',pathMatch:'full'},
   { path : 'admin', component :  AdminComponent,canActivate:[AuthGuard], canActivateChild: [],
   children:[
@@ -59,7 +62,8 @@ const routes: Routes = [
     {path:'usersu', component: ListuseruComponent,canActivate:[AuthGuard], pathMatch: 'full'},
     {path:'help', component: HelppComponent,canActivate:[AuthGuard], pathMatch: 'full'},
     {path:'detail', component: DetailComponent,canActivate:[AuthGuard], pathMatch: 'full'}
-]}
+]},
+{ path : '**', redirectTo:'/error' , pathMatch: 'full'},
  
 ];
 

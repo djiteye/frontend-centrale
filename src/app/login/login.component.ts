@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { Role } from '../model/role';
 import { UserService } from '../service/user.service';
+import { Observable } from 'rxjs';
 
 
 
@@ -25,10 +26,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.us;
     this.ua;
+   
    // this.storeAuthenticatedUser(this.us);
-    
+   this.getAccT();
   }
 
+  getAccT(){
+    return this.userService.getAccessToken();
+   }
  
   userlogin() {
     //console.log(this.user)
@@ -36,13 +41,13 @@ export class LoginComponent implements OnInit {
       //alert("login succesfully");
       this.us=data;
      // console.log(this.us);
-     
+     localStorage.setItem('use', JSON.stringify(this.us));
       this.userService.getUser(this.us.userId).subscribe(data => {
         this.ua = data;
        // console.log(this.ua);
        // this.rol = data;
       
-      localStorage.setItem('use', JSON.stringify(this.us));
+     
       if(this.hasRole("ROLE_ADMIN", this.ua.role)){
  
         this.route.navigate(['/admin']);
@@ -59,6 +64,8 @@ export class LoginComponent implements OnInit {
   hasRole(roleName: string, rol: Role[]): boolean {
     return rol.some(role => role.name === roleName);
   }
+
+  
  /* public getUser(id:any){
     this.userService.getUser(id).subscribe(data => {
       this.usa = data;

@@ -54,6 +54,8 @@ import { DechargesComponent } from './decharges/decharges.component';
 import { DechargetComponent } from './decharget/decharget.component';
 import { RefreshTokenInterceptorInterceptor } from './refresh-token-interceptor.interceptor';
 import { AuthGuard } from './auth.guard';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+
 
 
 
@@ -95,6 +97,7 @@ import { AuthGuard } from './auth.guard';
     DechargepComponent,
     DechargesComponent,
     DechargetComponent,
+    ErrorpageComponent,
    
    
   ],
