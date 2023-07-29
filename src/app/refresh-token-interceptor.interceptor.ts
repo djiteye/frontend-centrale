@@ -32,8 +32,9 @@ private isRefreshing = false;
           params : new HttpParams().set('Authorization', this.AccessToken)
         }
        );*/
-       console.log(request);
+      // console.log(request);
       // return next.handle(request);
+     // console.log(this.userService.getAccessToken());
         
       
       return next.handle(request).pipe(
